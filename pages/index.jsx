@@ -2,6 +2,7 @@ import { AppContext } from "../components/AppContext";
 import { useContext } from "react";
 import AstrologyCard from "../components/AstrologyCard";
 import Header from "../components/Header";
+import Head from "next/head";
 import {
   IconZodiacAquarius,
   IconZodiacAries,
@@ -135,10 +136,10 @@ export default function IndexPage() {
   }
 
   return (
-    <main className="w-full text-white h-screen bg-black">
+    <main className="w-full text-white h-screen bg-[url('/bg.webp')]">
       <div className="w-4/5 p-4 h-full mx-auto">
-        <Header />
-        {`Your sign is ${getSign().sign}`}
+        {/* <Header /> */}
+        {/* {`Your sign is ${getSign().sign}`} */}
         <div className="flex items-center mt-6 justify-center gap-4 h-auto flex-wrap">
           {renderAstrologyCard()}
         </div>
