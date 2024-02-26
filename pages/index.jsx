@@ -101,10 +101,10 @@ export default function IndexPage() {
       return <AstrologyCard sign={sign.sign} icon={sign.icon} />;
     }
     let list = [];
-    starSign.forEach((item) => {
+    starSign.forEach((item, index) => {
       list.push(
         <AstrologyCard
-          key={item.name}
+          key={index}
           sign={item.sign}
           icon={item.icon}
           horoscope={item.horoscope}
@@ -138,6 +138,15 @@ export default function IndexPage() {
   return (
     <main className="w-full text-white h-screen bg-[url('/bg.webp')]">
       <div className="w-4/5 p-4 h-full mx-auto">
+        <div className="flex flex-col items-center">
+          <h1>Daily Horoscope</h1>
+          <span>🌟 Your Celestial Guide to the Stars! 🌟</span>
+          <span>
+            Tap into the cosmic energy and draw inspiration from the celestial
+            wisdom that molds your destiny.
+          </span>
+        </div>
+
         {/* <Header /> */}
         {/* {`Your sign is ${getSign().sign}`} */}
         <div className="flex items-center mt-6 justify-center gap-4 h-auto flex-wrap">
