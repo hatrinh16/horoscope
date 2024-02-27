@@ -16,6 +16,7 @@ import {
   IconZodiacTaurus,
   IconZodiacVirgo,
 } from "@tabler/icons-react";
+import { HeaderMenu } from "../components/HeaderMenu";
 
 const starSign = [
   {
@@ -86,7 +87,7 @@ const starSign = [
   },
   {
     sign: "pisces",
-    icon: <IconZodiacAquarius />,
+    icon: <IconZodiacAries />,
     start: "02-19",
     end: "03-20",
   },
@@ -139,6 +140,7 @@ export default function IndexPage() {
     <main className="w-full text-white h-screen bg-[url('/bg.webp')]">
       <div className="w-4/5 p-4 h-full mx-auto">
         <div className="flex flex-col items-center">
+          <HeaderMenu />
           <h1>Daily Horoscope</h1>
           <span>🌟 Your Celestial Guide to the Stars! 🌟</span>
           <span>
