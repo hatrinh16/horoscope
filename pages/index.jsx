@@ -1,7 +1,7 @@
 import { AppContext } from "../components/AppContext";
 import { useContext } from "react";
 import AstrologyCard from "../components/AstrologyCard";
-import Header from "../components/Header";
+// import Header from "../components/Header";
 import Head from "next/head";
 import {
   IconZodiacAquarius,
@@ -16,7 +16,7 @@ import {
   IconZodiacTaurus,
   IconZodiacVirgo,
 } from "@tabler/icons-react";
-import { HeaderMenu } from "../components/HeaderMenu";
+// import { HeaderMenu } from "../components/HeaderMenu";
 
 const starSign = [
   {
@@ -140,7 +140,7 @@ export default function IndexPage() {
     <main className="w-full text-white h-screen bg-[url('/bg.webp')]">
       <div className="w-4/5 p-4 h-full mx-auto">
         <div className="flex flex-col items-center">
-          <HeaderMenu />
+          {/* <HeaderMenu /> */}
           <h1>Daily Horoscope</h1>
           <span>🌟 Your Celestial Guide to the Stars! 🌟</span>
           <span>

@@ -74,7 +74,7 @@ export function HeaderMenu() {
       <div>
         <div className="flex items-center justify-between">
             <img className="w-10" src="/logo-horoscope.webp" alt="logo"/>
-         <div gap={5} visibleFrom="sm">
+         <div>
             {items}
           </div>
           <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />
