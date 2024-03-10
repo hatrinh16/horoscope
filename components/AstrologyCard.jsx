@@ -19,7 +19,7 @@ function AstrologyCard({ sign, icon }) {
     <>
       <div
         onClick={handleClick}
-        className="relative hover:cursor-pointer hover:shadow hover:shadow-slate-300 w-48 h-52 flex flex-col border rounded-md bg-zinc-800 p-2"
+        className="relative hover:cursor-pointer hover:shadow hover:shadow-slate-300 w-48 h-52 flex flex-col border rounded-md backdrop-blur-sm bg-blue-50/30 p-2"
       >
         <div className="flex items-center justify-center">{icon}</div>
         <div className="text-center text-xl font-semibold">{sign}</div>
