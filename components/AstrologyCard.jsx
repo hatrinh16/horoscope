@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { LoadingOverlay, Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { sign } from "crypto";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -10,11 +11,18 @@ function AstrologyCard({ sign, icon }) {
     fetcher
   );
 
+  // Access the second entry from the data array
+  const secondData = data.data[1]; // Accessing the second element (index 1)
+
+  // Capitalize the first letter of the sign
+  const capitalizedSign = sign.charAt(0).toUpperCase() + sign.slice(1);
+
   const [opened, { open, close }] = useDisclosure(false);
 
   function handleClick() {
     open();
   }
+
   return (
     <>
       <div
@@ -22,11 +30,13 @@ function AstrologyCard({ sign, icon }) {
         className="relative hover:cursor-pointer hover:shadow hover:shadow-slate-300 w-48 h-52 flex flex-col border rounded-md backdrop-blur-sm bg-blue-50/30 p-2"
       >
         <div className="flex items-center justify-center">{icon}</div>
-        <div className="text-center text-xl font-semibold">{sign}</div>
+        <div className="text-center text-xl font-semibold">
+          {capitalizedSign}
+        </div>
         {isLoading || error ? (
           <LoadingOverlay visible={isLoading}></LoadingOverlay>
         ) : (
-          <div className="text-sm mt-4 line-clamp-4">{data.horoscope}</div>
+          <div className="text-sm mt-4 line-clamp-4">{secondData}</div>
         )}
       </div>
 
@@ -35,7 +45,7 @@ function AstrologyCard({ sign, icon }) {
         {isLoading || error ? (
           <LoadingOverlay visible={isLoading}></LoadingOverlay>
         ) : (
-          <div className="text-sm mt-4">{data.horoscope}</div>
+          <div className="text-sm mt-4">{secondData}</div>
         )}
       </Modal>
     </>
