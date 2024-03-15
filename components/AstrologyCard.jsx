@@ -12,7 +12,7 @@ function AstrologyCard({ sign, icon }) {
   );
 
   // Access the second entry from the data array
-  const secondData = data.data[1]; // Accessing the second element (index 1)
+  const secondData = data?.data?.[1]; // Accessing the second element (index 1)
 
   // Capitalize the first letter of the sign
   const capitalizedSign = sign.charAt(0).toUpperCase() + sign.slice(1);
