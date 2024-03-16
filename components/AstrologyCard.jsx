@@ -1,7 +1,6 @@
 import useSWR from "swr";
 import { LoadingOverlay, Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { sign } from "crypto";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -11,8 +10,8 @@ function AstrologyCard({ sign, icon }) {
     fetcher
   );
 
-  // Access the second entry from the data array
-  const secondData = data?.data?.[1]; // Accessing the second element (index 1)
+  // Access the 'data' property safely
+  const secondData = data?.data?.[1];
 
   // Capitalize the first letter of the sign
   const capitalizedSign = sign.charAt(0).toUpperCase() + sign.slice(1);
