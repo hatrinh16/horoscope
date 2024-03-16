@@ -108,7 +108,7 @@ export default function IndexPage() {
           key={index}
           sign={item.sign}
           icon={item.icon}
-          horoscope={item.horoscope}
+          horoscope={item.data}
         />
       );
     });
