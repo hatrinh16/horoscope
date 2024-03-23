@@ -137,22 +137,60 @@ export default function IndexPage() {
   }
 
   return (
-    <main className="w-full text-white h-screen bg-[url('/bg.webp')]">
-      <div className="w-4/5 p-4 h-full mx-auto">
-        <div className="flex flex-col items-center">
-          {/* <HeaderMenu /> */}
-          <h1>Daily Horoscope</h1>
-          <span>🌟 Your Celestial Guide to the Stars! 🌟</span>
-          <span>
+    <main className="flex flex-col w-full h-screen bg-white items-center">
+      <div className="flex flex-col items-center">
+        <h1>DailyAstro</h1>
+        <span className="intro">🌟 Your Celestial Guide to the Stars! 🌟</span>
+        <div className="w-3/5 text-center">
+          <span className="intro">
             Tap into the cosmic energy and draw inspiration from the celestial
             wisdom that molds your destiny.
           </span>
         </div>
+      </div>
+      <div className="flex flex-row w-4/5 mt-20 items-start text-[#28164C] justify-center">
+        <div className="w-3/5 p-4">
+          <h2>Daily Horoscopes</h2>
+          <div className="flex items-center mt-6 justify-items-start gap-4 h-auto flex-wrap">
+            {renderAstrologyCard()}
+          </div>
+        </div>
+        <div className="w-2/5 p-4">
+          <div>
+            <h2>Planet Positions</h2>
+            <div className="planet">
+              <div className="flex flex-col text-gray-200">
+                <span>dd/mm/yyyy, at 00:00:00 PM</span>
+                <span>Coordinated Universal Time</span>
+              </div>
+              <span>Sun 02° Aries 31'  27"</span>
+              <span>Moon 04° Virgo 09'  36"</span>
+              <span>Mercury 20° Aries 50'  31"</span>
+              <span>Venus 13° Pisces 19'  00"</span>
+              <span>Mars 29° Aquarius 45'  06"</span>
+              <span>Jupiter 15° Taurus 24'  02"</span>
+              <span>Saturn 12° Pisces 31'  31"</span>
+              <span>Uranus 20° Taurus 21'  41"</span>
+              <span>Neptune 27° Pisces 33'  24"</span>
+              <span>Pluto 01° Aquarius 42'  35"</span>
+            </div>
+          </div>
 
-        {/* <Header /> */}
-        {/* {`Your sign is ${getSign().sign}`} */}
-        <div className="flex items-center mt-6 justify-center gap-4 h-auto flex-wrap">
-          {renderAstrologyCard()}
+          <div>
+            <h2>Card of the Day</h2>
+            <div className="tarot">
+              <p className="text-[#EEA5A6]">THE CHARIOT</p>
+              <div className="flex items-start self-stretch">
+                <p>
+                  Are you ready to move forward? If the Chariot shows up in your
+                  reading, it's no time to start slacking. Congratulate yourself
+                  for your hard work, but also continue riding the wave...
+                </p>
+                {/* <img src="" alt="" /> */}
+              </div>
+              <div className="btn">Read more</div>
+            </div>
+          </div>
         </div>
       </div>
     </main>

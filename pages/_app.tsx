@@ -4,6 +4,7 @@ import Head from "next/head";
 import { MantineProvider } from "@mantine/core";
 import { theme } from "../theme";
 import { AppProvider } from "../components/AppContext";
+import "./style.css";
 
 export default function App({ Component, pageProps }: any) {
   return (
