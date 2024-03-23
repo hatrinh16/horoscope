@@ -183,8 +183,9 @@ export default function IndexPage() {
               <div className="flex items-start self-stretch">
                 <p>
                   Are you ready to move forward? If the Chariot shows up in your
-                  reading, it's no time to start slacking. Congratulate yourself
-                  for your hard work, but also continue riding the wave...
+                  reading, it is no time to start slacking. Congratulate
+                  yourself for your hard work, but also continue riding the
+                  wave...
                 </p>
                 {/* <img src="" alt="" /> */}
               </div>
