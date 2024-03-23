@@ -163,16 +163,16 @@ export default function IndexPage() {
                 <span>dd/mm/yyyy, at 00:00:00 PM</span>
                 <span>Coordinated Universal Time</span>
               </div>
-              <span>Sun 02° Aries 31'  27"</span>
-              <span>Moon 04° Virgo 09'  36"</span>
-              <span>Mercury 20° Aries 50'  31"</span>
-              <span>Venus 13° Pisces 19'  00"</span>
-              <span>Mars 29° Aquarius 45'  06"</span>
-              <span>Jupiter 15° Taurus 24'  02"</span>
-              <span>Saturn 12° Pisces 31'  31"</span>
-              <span>Uranus 20° Taurus 21'  41"</span>
-              <span>Neptune 27° Pisces 33'  24"</span>
-              <span>Pluto 01° Aquarius 42'  35"</span>
+              <span>Sun 02° Aries</span>
+              <span>Moon 04° Virgo</span>
+              <span>Mercury 20° Aries</span>
+              <span>Venus 13° Pisces </span>
+              <span>Mars 29° Aquarius </span>
+              <span>Jupiter 15° Taurus </span>
+              <span>Saturn 12° Pisces </span>
+              <span>Uranus 20° Taurus </span>
+              <span>Neptune 27° Pisces </span>
+              <span>Pluto 01° Aquarius </span>
             </div>
           </div>
 
