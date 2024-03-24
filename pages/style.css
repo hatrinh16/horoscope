@@ -8,7 +8,6 @@
 
 
 h1 {
-    font-size: 64px;
     font-weight: 700;
     background: var(--Primary);
     background-clip: text;
@@ -16,13 +15,7 @@ h1 {
     -webkit-text-fill-color: transparent;
 }
 
-.intro {
-    color: #E493B3;
-    font-size: 24px;
-    font-weight: 400;
-}
 h2 {
-    font-size: 32px;
     font-weight: 500;
     background: var(--heading-color);
 background-clip: text;
@@ -55,6 +48,10 @@ background-clip: text;
     flex-direction: column;
     align-items: center;
     gap: 8px;
+    @media (max-width: 430px){
+        width: 120px;
+        display: flex;
+    }
 }
 .card:hover {
     background: var(--style-1);
@@ -73,6 +70,12 @@ background-clip: text;
     border: 1px solid var(--style-2, #FF989A);
     background: var(--style-1);
     color: #fff;
+    @media (max-width: 430px){
+        width: 95%;
+    }
+    @media (max-width: 1024px){
+        width: 95%;
+    }
 }
 .tarot {
     display: flex;
@@ -83,6 +86,12 @@ background-clip: text;
     gap: 16px;
     border-radius: 12px;
     border: 1px solid #FF989A;
+    @media (max-width: 430px){
+        width: 95%;
+    }
+    @media (max-width: 1024px){
+        width: 95%;
+    }
 }
 .btn {
     display: flex;
@@ -94,4 +103,29 @@ background-clip: text;
     border-radius: 8px;
     background: var(--style-2);
     color: #fff;
+    @media (max-width: 430px){
+        width: 95%;
+    }
 }
+
+@media (max-width: 768px) {
+    .flex-row {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .mt-20 {
+      margin-top: 16px; /* Adjust spacing for smaller screens */
+    }
+  }
+
+  @media (max-width: 375px) {
+    .flex-row {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .mt-20 {
+      margin-top: 12px; /* Adjust spacing for smaller screens */
+    }
+  }

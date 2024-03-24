@@ -139,25 +139,33 @@ export default function IndexPage() {
   return (
     <main className="flex flex-col w-full h-screen bg-white items-center">
       <div className="flex flex-col items-center">
-        <h1>DailyAstro</h1>
-        <span className="intro">🌟 Your Celestial Guide to the Stars! 🌟</span>
+        <h1 className="text-[28px] md:text-[32px] lg:text-[64px]">
+          DailyAstro
+        </h1>
+        <span className="text-lg md:text-xl lg:text-2xl text-[#E493B3] font-normal">
+          🌟 Your Celestial Guide to the Stars! 🌟
+        </span>
         <div className="w-3/5 text-center">
-          <span className="intro">
+          <span className="text-lg md:text-xl lg:text-2xl text-[#E493B3] font-normal">
             Tap into the cosmic energy and draw inspiration from the celestial
             wisdom that molds your destiny.
           </span>
         </div>
       </div>
       <div className="flex flex-row w-4/5 mt-20 items-start text-[#28164C] justify-center">
-        <div className="w-3/5 p-4">
-          <h2>Daily Horoscopes</h2>
+        <div className="w-full lg:w-3/5 p-4">
+          <h2 className="text-lg md:text-2xl lg:text-[32px]">
+            Daily Horoscopes
+          </h2>
           <div className="flex items-center mt-6 justify-items-start gap-4 h-auto flex-wrap">
             {renderAstrologyCard()}
           </div>
         </div>
-        <div className="w-2/5 p-4">
+        <div className="w-full lg:w-2/5 p-4">
           <div>
-            <h2>Planet Positions</h2>
+            <h2 className="text-lg md:text-2xl lg:text-[32px]">
+              Planet Positions
+            </h2>
             <div className="planet">
               <div className="flex flex-col text-gray-200">
                 <span>dd/mm/yyyy, at 00:00:00 PM</span>
@@ -177,7 +185,9 @@ export default function IndexPage() {
           </div>
 
           <div>
-            <h2>Card of the Day</h2>
+            <h2 className="text-lg md:text-2xl lg:text-[32px]">
+              Card of the Day
+            </h2>
             <div className="tarot">
               <p className="text-[#EEA5A6]">THE CHARIOT</p>
               <div className="flex items-start self-stretch">

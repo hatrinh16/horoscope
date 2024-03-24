@@ -30,16 +30,18 @@ function AstrologyCard({ sign, icon }) {
         {isLoading || error ? (
           <LoadingOverlay visible={isLoading}></LoadingOverlay>
         ) : (
-          <div className="text-sm mt-4 line-clamp-4">{secondData}</div>
+          <div className="text-sm mt-4 hidden md:line-clamp-2 lg:line-clamp-4">
+            {secondData}
+          </div>
         )}
       </div>
 
       <Modal opened={opened} onClose={close} title={sign.toUpperCase()}>
-        <div className="flex items-center justify-center">{icon}</div>
+        <div className="flex items-center justify-center sign-icon">{icon}</div>
         {isLoading || error ? (
           <LoadingOverlay visible={isLoading}></LoadingOverlay>
         ) : (
-          <div className="text-sm mt-4">{secondData}</div>
+          <div className="text-sm mt-4 text-[#28164C]">{secondData}</div>
         )}
       </Modal>
     </>
