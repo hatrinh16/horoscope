@@ -137,7 +137,7 @@ export default function IndexPage() {
   }
 
   return (
-    <main className="flex flex-col w-full h-screen bg-white items-center">
+    <main className="flex flex-col w-full bg-white items-center">
       <div className="flex flex-col items-center">
         <h1 className="text-[28px] md:text-[32px] lg:text-[64px]">
           DailyAstro
@@ -162,7 +162,7 @@ export default function IndexPage() {
           </div>
         </div>
         <div className="w-full lg:w-2/5 p-4">
-          <div>
+          <div className="w-full">
             <h2 className="text-lg md:text-2xl lg:text-[32px]">
               Planet Positions
             </h2>

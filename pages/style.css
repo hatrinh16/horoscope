@@ -5,7 +5,9 @@
     --style-2: linear-gradient(208deg, #FF989A -47.3%, #FFCACB 42.98%, #FFC6CC 50.42%, #CF93C4 131.78%, #B784B7 148.3%);
 }
 
-
+main {
+    background: white;
+}
 
 h1 {
     font-weight: 700;
@@ -67,7 +69,7 @@ background-clip: text;
     align-items: flex-start;
     /* gap: 16px;   */
     border-radius: 12px;
-    border: 1px solid var(--style-2, #FF989A);
+    border: 1px solid #FF989A;
     background: var(--style-1);
     color: #fff;
     @media (max-width: 430px){
