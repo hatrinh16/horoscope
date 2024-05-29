@@ -5,6 +5,7 @@ import { MantineProvider } from "@mantine/core";
 import { theme } from "../theme";
 import { AppProvider } from "../components/AppContext";
 import "./style.css";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export default function App({ Component, pageProps }: any) {
   return (

@@ -1,8 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 import { AppContext } from "../components/AppContext";
 import { useContext } from "react";
 import AstrologyCard from "../components/AstrologyCard";
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 // import Header from "../components/Header";
-import Head from "next/head";
 import {
   IconZodiacAquarius,
   IconZodiacAries,
@@ -138,7 +140,14 @@ export default function IndexPage() {
 
   return (
     <main className="flex flex-col w-full bg-white items-center">
-      <div className="flex flex-col items-center">
+      <GoogleAnalytics gaId="G-CJL0S39WM9" />
+
+      <img
+        src="/cloud.png"
+        alt="background"
+        className="z-[0] w-full absolute top-[-1%] left-[0] md:top-0 lg:top-[-10%] "
+      />
+      <div className="flex flex-col items-center z-10">
         <h1 className="text-[28px] md:text-[32px] lg:text-[64px]">
           DailyAstro
         </h1>
@@ -152,7 +161,7 @@ export default function IndexPage() {
           </span>
         </div>
       </div>
-      <div className="flex flex-row w-4/5 mt-20 items-start text-[#28164C] justify-center">
+      <div className="flex flex-row w-4/5 mt-20 items-start text-[#28164C] justify-center z-10">
         <div className="w-full lg:w-3/5 p-4">
           <h2 className="text-lg md:text-2xl lg:text-[32px]">
             Daily Horoscopes
