@@ -12,11 +12,15 @@ export default function App({ Component, pageProps }: any) {
     <MantineProvider theme={theme}>
       <AppProvider>
         <Head>
-          <title>Daily Horoscope</title>
+          <title>Daily Horoscope | DailyAstro</title>
           <meta
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
           />
+          <meta
+            name="description"
+            content="Discover your daily horoscope and get insights into your future with DailyAstro. Stay informed with personalized astrological readings and celestial guidance tailored to your zodiac sign."
+           />
           <link rel="shortcut icon" href="/fav.png" />
         </Head>
         <Component {...pageProps} />
