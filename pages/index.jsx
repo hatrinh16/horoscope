@@ -168,7 +168,7 @@ export default function IndexPage() {
             />
           </a>
           <a href="https://www.instagram.com/dailyastro.info/">
-            <img src="/instagram-icon.svg" alt="instagram" className="w-8" />
+            <img src="/instagram icon.svg" alt="instagram" className="w-8" />
           </a>
           <a href="https://x.com/dailyastroinfo">
             <img src="/arcticons_x-twitter.svg" alt="twitter" className="w-8" />
