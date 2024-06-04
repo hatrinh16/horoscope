@@ -1,0 +1,14 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="arcticons:instagram-threads">
+<path id="Vector" d="M17.95 16.332C20.027 14.256 21.898 13.389 24.682 13.389C27.466 13.389 33.81 14.369 32.927 24.474C32.044 34.578 25.789 34.251 24.682 34.251C20.567 34.251 17.297 32.584 17.297 28.398C17.297 22.646 23.935 22.348 26.158 22.348C31.586 22.348 40.578 24 40.578 33.074C40.578 44.127 27.598 45.5 24.229 45.5C16.119 45.5 5.59 41.38 5.59 23.297C5.59 5.214 19.184 2.5 24.682 2.5C30.18 2.5 37.946 3.301 42.41 15.318" stroke="url(#paint0_linear_52_5074)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_52_5074" x1="53.0533" y1="58.9251" x2="-7.14281" y2="-8.25745" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF989A"/>
+<stop offset="0.461534" stop-color="#FFCACB"/>
+<stop offset="0.499596" stop-color="#FFC6CC"/>
+<stop offset="0.915514" stop-color="#CF93C4"/>
+<stop offset="1" stop-color="#B784B7"/>
+</linearGradient>
+</defs>
+</svg>

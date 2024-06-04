@@ -1,0 +1,14 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="arcticons:x-twitter">
+<path id="Vector" d="M21.604 25.622L7.693 41.498M37.924 6.502L25.554 21.07M6.61 6.5L34.05 41.5H41.61L14.171 6.5H6.61Z" stroke="url(#paint0_linear_52_5078)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_52_5078" x1="51.7272" y1="52.4274" x2="4.1158" y2="-9.62858" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF989A"/>
+<stop offset="0.461534" stop-color="#FFCACB"/>
+<stop offset="0.499596" stop-color="#FFC6CC"/>
+<stop offset="0.915514" stop-color="#CF93C4"/>
+<stop offset="1" stop-color="#B784B7"/>
+</linearGradient>
+</defs>
+</svg>

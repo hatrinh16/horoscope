@@ -143,14 +143,37 @@ export default function IndexPage() {
       <GoogleAnalytics gaId="G-CJL0S39WM9" />
 
       <img
-        src="/cloud.png"
+        src="/Frame 11.png"
         alt="background"
         className="z-[0] w-full absolute top-[-1%] left-[0] md:top-0 lg:top-[-10%] "
       />
+      <img
+        src="/Frame 10.png"
+        alt="background"
+        className="z-[0] absolute top-[10%] left-[-10%] md:top-8 lg:top-[10%] "
+      />
+      <img
+        src="/Frame 12.png"
+        alt="background"
+        className="z-[0] absolute top-[10%] right-[-10%] md:top-10 lg:top-[10%] "
+      />
       <div className="flex flex-col items-center z-10">
-        <h1 className="text-[28px] md:text-[32px] lg:text-[64px]">
-          DailyAstro
-        </h1>
+        <img src="/logo.png" alt="logo" className="mt-12 w-[60%] mb-4" />
+        <div className="flex gap-4 mb-4">
+          <a href="https://www.threads.net/@dailyastro.info">
+            <img
+              src="/arcticons_instagram-threads.svg"
+              alt="threads"
+              className="w-8"
+            />
+          </a>
+          <a href="https://www.instagram.com/dailyastro.info/">
+            <img src="/instagram-icon.svg" alt="instagram" className="w-8" />
+          </a>
+          <a href="https://x.com/dailyastroinfo">
+            <img src="/arcticons_x-twitter.svg" alt="twitter" className="w-8" />
+          </a>
+        </div>
         <span className="text-lg md:text-xl lg:text-2xl text-[#E493B3] font-normal">
           🌟 Your Celestial Guide to the Stars! 🌟
         </span>
@@ -211,6 +234,14 @@ export default function IndexPage() {
               <div className="btn">Read more</div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="">
+        <div className="w-full items-center">
+          <h2 className="text-lg md:text-2xl lg:text-[32px]">
+            Monthly Horoscopes
+          </h2>
+          <p>Coming soon!</p>
         </div>
       </div>
     </main>
