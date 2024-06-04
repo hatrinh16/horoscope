@@ -150,12 +150,12 @@ export default function IndexPage() {
       <img
         src="/Frame 10.png"
         alt="background"
-        className="z-[0] absolute top-[10%] left-[-10%] md:top-8 lg:top-[10%] "
+        className="w-[50%] h-[40%] absolute left-[0] top-[60%] lg:top-[50%] "
       />
       <img
         src="/Frame 12.png"
         alt="background"
-        className="z-[0] absolute top-[10%] right-[-10%] md:top-10 lg:top-[10%] "
+        className="w-[50%] h-[40%] absolute right-[0] top-[50%] lg:top-[60%] "
       />
       <div className="flex flex-col items-center z-10">
         <img src="/logo.png" alt="logo" className="mt-12 w-[60%] mb-4" />
