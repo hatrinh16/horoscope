@@ -1,7 +1,9 @@
 import useSWR from "swr";
+import { useRouter } from "next/router";
 import { LoadingOverlay, Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
+// Fetch data
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function AstrologyCard({ sign, icon }) {
@@ -18,8 +20,10 @@ function AstrologyCard({ sign, icon }) {
 
   const [opened, { open, close }] = useDisclosure(false);
 
+  const router = useRouter();
+
   function handleClick() {
-    open();
+    router.push(`/signs/${sign}`);
   }
 
   return (
@@ -35,15 +39,6 @@ function AstrologyCard({ sign, icon }) {
           </div>
         )}
       </div>
-
-      <Modal opened={opened} onClose={close} title={sign.toUpperCase()}>
-        <div className="flex items-center justify-center sign-icon">{icon}</div>
-        {isLoading || error ? (
-          <LoadingOverlay visible={isLoading}></LoadingOverlay>
-        ) : (
-          <div className="text-sm mt-4 text-[#28164C]">{secondData}</div>
-        )}
-      </Modal>
     </>
   );
 }

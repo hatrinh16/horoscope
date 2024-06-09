@@ -39,6 +39,7 @@ background-clip: text;
     align-items: center;
     justify-content: center;
 }
+
 .card {
     position: relative; 
     width: 192px;

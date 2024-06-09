@@ -241,7 +241,7 @@ export default function IndexPage() {
           <h2 className="text-lg md:text-2xl lg:text-[32px]">
             Monthly Horoscopes
           </h2>
-          <p>Coming soon!</p>
+          <p>Chosse Your Sign</p>
         </div>
       </div>
     </main>
