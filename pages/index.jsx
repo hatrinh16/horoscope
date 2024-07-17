@@ -141,6 +141,10 @@ export default function IndexPage() {
   return (
     <main className="flex flex-col w-full bg-white items-center">
       <GoogleAnalytics gaId="G-CJL0S39WM9" />
+      <meta
+        name="google-site-verification"
+        content="Z7Xj1mON6jtmxhfHYq1IjUEfdly8pa49_OLX_yFl0QA"
+      />
 
       <img
         src="/Frame 11.png"
