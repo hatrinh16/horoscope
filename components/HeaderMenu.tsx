@@ -5,27 +5,29 @@ import { IconChevronDown } from '@tabler/icons-react';
 import classes from './HeaderMenu.module.css';
 
 const links = [
-  { link: '/about', label: 'Features' },
-  {
-    link: '#1',
-    label: 'Learn',
+  { link: '#1', label: 'Horoscopes',
     links: [
-      { link: '/docs', label: 'Documentation' },
-      { link: '/resources', label: 'Resources' },
-      { link: '/community', label: 'Community' },
-      { link: '/blog', label: 'Blog' },
-    ],
-  },
-  { link: '/about', label: 'About' },
-  { link: '/pricing', label: 'Pricing' },
+      { link: '/daily-horoscopes', label: 'Daily Horoscopes'},
+     { link: '/weekly-horoscopes', label: 'Weekly Horoscopes'},
+     { link: '/monthly-horoscopes', label: 'Monthly Horoscopes'},
+     { link: '/year', label: 'Yearly Horoscope'}
+    ]
+   },
   {
     link: '#2',
-    label: 'Support',
+    label: 'Zodiac',
     links: [
-      { link: '/faq', label: 'FAQ' },
-      { link: '/demo', label: 'Book a demo' },
-      { link: '/forums', label: 'Forums' },
+      { link: '/sun-sign', label: 'Sun Sign' },
+      { link: '/moon-sign', label: 'Moon Sign' },
+      { link: '/rising-sign', label: 'Rising Sign' },
+      { link: '/zodian-sign', label: 'Zodiac Signs' },
     ],
+  },
+  { link: '/tarot', label: 'Tarot' },
+  { link: '/numerology', label: 'Numerology' },
+  {
+    link: '/good-days-calendars',
+    label: 'Good Days Calendars',
   },
 ];
 
@@ -71,18 +73,16 @@ export function HeaderMenu() {
 
   return (
     <header className={classes.header}>
-      <div>
-        <div className="flex items-center justify-between">
-            <img className="w-10" src="/logo-horoscope.webp" alt="logo"/>
-         <div>
+      <Container size ="md">
+        <div className={classes.inner}>
+         <Group gap={25} visibleFrom="sm">
             {items}
-          </div>
+          </Group>
           <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />
 
             </div>
           
-
-      </div>
+      </Container>
     </header>
   );
 }

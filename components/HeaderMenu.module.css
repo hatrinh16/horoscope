@@ -1,26 +1,30 @@
+
 .header {
-    height: rem(56px);
+    height: 56px;
     width: 100%;
-    background-color: black;
     display: flex;
     justify-content: space-between;
-    margin-bottom: rem(120px);
-    border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+    margin-bottom: 32px;
+    border-bottom: solid 1px #ffd8d9;
+    border-top: solid 1px #ffd8d9;
+    z-index: 10;
   }
   
   .inner {
-
+    height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   }
   
   .link {
     display: flex;
-    background-color: aqua;
-    line-height: 1;
-    padding: rem(8px) rem(12px);
+    line-height: auto;
+    padding: 16px;
     border-radius: var(--mantine-radius-sm);
     text-decoration: none;
-    color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
-    font-size: var(--mantine-font-size-sm);
+    color: #380950;
+    font-size: 20px;
     font-weight: 500;
   
     @mixin hover {

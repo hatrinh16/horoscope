@@ -4,6 +4,8 @@ import useSWR from "swr";
 import { LoadingOverlay } from "@mantine/core";
 import { Tabs, Tab, Box } from "@mui/material";
 import React, { useState } from "react";
+import { HeaderMenu } from "../../components/HeaderMenu";
+import { FooterLinks } from "../../components/FooterLinks";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -98,6 +100,9 @@ export default function SignDetails() {
             <img src="/arcticons_x-twitter.svg" alt="twitter" className="w-8" />
           </a>
         </div>
+      </div>
+      <HeaderMenu />
+      <div>
         <span className="sign-name text-lg md:text-xl lg:text-2xl font-normal">
           🌟 {capitalizedSign} Horoscope 🌟
         </span>
@@ -118,15 +123,31 @@ export default function SignDetails() {
             {renderContent()}
           </div>
         </div>
-        <div className="flex flex-col w-4/5 items-start justify-start">
+        <div className="flex flex-col w-4/5 items-start justify-start text-[#28164C]">
           <div className="flex flex-col items-start justify-start">
             <h2 className="text-lg md:text-2xl lg:text-[32px]">
               More Horoscopes for {capitalizedSign}
             </h2>
-            <span>Coming soon</span>
+            <div className="flex gap-4 flex-wrap">
+              <div className="card">
+                <div className="weekly">Weekly</div>
+                <div className="text-sm mt-4">July 15-21</div>
+              </div>
+
+              <div className="card">
+                <div className="monthly">Monthly</div>
+                <div className="text-sm mt-4">July</div>
+              </div>
+
+              <div className="card">
+                <div className="yearly">Yearly</div>
+                <div className="text-sm mt-4">2024</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <FooterLinks />
     </main>
   );
 }

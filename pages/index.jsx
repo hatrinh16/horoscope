@@ -18,7 +18,8 @@ import {
   IconZodiacTaurus,
   IconZodiacVirgo,
 } from "@tabler/icons-react";
-// import { HeaderMenu } from "../components/HeaderMenu";
+import { HeaderMenu } from "../components/HeaderMenu";
+import { FooterLinks } from "../components/FooterLinks";
 
 const starSign = [
   {
@@ -141,10 +142,6 @@ export default function IndexPage() {
   return (
     <main className="flex flex-col w-full bg-white items-center">
       <GoogleAnalytics gaId="G-CJL0S39WM9" />
-      <meta
-        name="google-site-verification"
-        content="Z7Xj1mON6jtmxhfHYq1IjUEfdly8pa49_OLX_yFl0QA"
-      />
 
       <img
         src="/Frame 11.png"
@@ -161,8 +158,13 @@ export default function IndexPage() {
         alt="background"
         className="w-[50%] h-[40%] absolute right-[0] top-[50%] lg:top-[60%] "
       />
+      {/* logo */}
       <div className="flex flex-col items-center z-10">
-        <img src="/logo.png" alt="logo" className="mt-12 w-[60%] mb-4" />
+        <img
+          src="/logo.png"
+          alt="logo"
+          className="mt-12 w-[60%] mb-4 cursor-pointer"
+        />
         <div className="flex gap-4 mb-4">
           <a href="https://www.threads.net/@dailyastro.info">
             <img
@@ -178,6 +180,10 @@ export default function IndexPage() {
             <img src="/arcticons_x-twitter.svg" alt="twitter" className="w-8" />
           </a>
         </div>
+      </div>
+
+      <HeaderMenu />
+      <div className="flex flex-col justify-center items-center">
         <span className="text-lg md:text-xl lg:text-2xl text-[#E493B3] font-normal">
           🌟 Your Celestial Guide to the Stars! 🌟
         </span>
@@ -188,66 +194,41 @@ export default function IndexPage() {
           </span>
         </div>
       </div>
+
+      {/* Daily horoscope */}
       <div className="flex flex-row w-4/5 mt-20 items-start text-[#28164C] justify-center z-10">
-        <div className="w-full lg:w-3/5 p-4">
-          <h2 className="text-lg md:text-2xl lg:text-[32px]">
+        <div className="w-full lg:w-[75%] p-4">
+          <h2 className="text-lg md:text-2xl lg:text-[32px] text-center">
             Daily Horoscopes
           </h2>
-          <div className="flex items-center mt-6 justify-items-start gap-4 h-auto flex-wrap">
+          <div className="flex items-center mt-6 justify-center gap-4 h-auto flex-wrap">
             {renderAstrologyCard()}
           </div>
         </div>
-        <div className="w-full lg:w-2/5 p-4">
-          <div className="w-full">
-            <h2 className="text-lg md:text-2xl lg:text-[32px]">
-              Planet Positions
-            </h2>
-            <div className="planet">
-              <div className="flex flex-col text-gray-200">
-                <span>dd/mm/yyyy, at 00:00:00 PM</span>
-                <span>Coordinated Universal Time</span>
-              </div>
-              <span>Sun 02° Aries</span>
-              <span>Moon 04° Virgo</span>
-              <span>Mercury 20° Aries</span>
-              <span>Venus 13° Pisces </span>
-              <span>Mars 29° Aquarius </span>
-              <span>Jupiter 15° Taurus </span>
-              <span>Saturn 12° Pisces </span>
-              <span>Uranus 20° Taurus </span>
-              <span>Neptune 27° Pisces </span>
-              <span>Pluto 01° Aquarius </span>
-            </div>
-          </div>
+      </div>
 
-          <div>
-            <h2 className="text-lg md:text-2xl lg:text-[32px]">
-              Card of the Day
-            </h2>
-            <div className="tarot">
-              <p className="text-[#EEA5A6]">THE CHARIOT</p>
-              <div className="flex items-start self-stretch">
-                <p>
-                  Are you ready to move forward? If the Chariot shows up in your
-                  reading, it is no time to start slacking. Congratulate
-                  yourself for your hard work, but also continue riding the
-                  wave...
-                </p>
-                {/* <img src="" alt="" /> */}
-              </div>
-              <div className="btn">Read more</div>
+      {/* More horoscope */}
+      <div className="flex flex-row w-4/5 items-start justify-center text-[#28164C] mb-8">
+        <div className="w-full p-4">
+          <h2 className="text-lg md:text-2xl lg:text-[32px] text-center">
+            More Horoscopes
+          </h2>
+          <div className="flex items-center justify-center gap-4 w-full">
+            <div className="card">
+              <div className="monthly">Monthly Horoscope</div>
+            </div>
+
+            <div className="card">
+              <div className="yearly">2024 Horoscope</div>
+            </div>
+
+            <div className="card">
+              <div className="work">Work Horoscope</div>
             </div>
           </div>
         </div>
       </div>
-      <div className="">
-        <div className="w-full items-center">
-          <h2 className="text-lg md:text-2xl lg:text-[32px]">
-            Monthly Horoscopes
-          </h2>
-          <p>Chosse Your Sign</p>
-        </div>
-      </div>
+      <FooterLinks />
     </main>
   );
 }

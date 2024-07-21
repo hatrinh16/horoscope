@@ -23,7 +23,7 @@ function AstrologyCard({ sign, icon }) {
   const router = useRouter();
 
   function handleClick() {
-    router.push(`/signs/${sign}`);
+    router.push(`/daily-horoscope/${sign}`);
   }
 
   return (
@@ -31,13 +31,6 @@ function AstrologyCard({ sign, icon }) {
       <div onClick={handleClick} className="card">
         <div className="sign-icon">{icon}</div>
         <div className="sign-name">{capitalizedSign}</div>
-        {isLoading || error ? (
-          <LoadingOverlay visible={isLoading}></LoadingOverlay>
-        ) : (
-          <div className="text-sm mt-4 hidden md:line-clamp-2 lg:line-clamp-4">
-            {secondData}
-          </div>
-        )}
       </div>
     </>
   );

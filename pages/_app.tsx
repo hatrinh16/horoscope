@@ -7,6 +7,7 @@ import { AppProvider } from "../components/AppContext";
 import "./style.css";
 import { GoogleAnalytics } from '@next/third-parties/google'
 
+
 export default function App({ Component, pageProps }: any) {
   return (
     <MantineProvider theme={theme}>
