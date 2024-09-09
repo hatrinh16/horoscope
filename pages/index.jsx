@@ -162,7 +162,7 @@ export default function IndexPage() {
       <div className="flex flex-row w-full lg:w-4/5 mt-4 items-start text-[#212121] justify-center z-10">
         <div className="w-full lg:w-[75%] p-4">
           <h2 className="text-lg md:text-2xl lg:text-[32px] text-center">
-            Daily Horoscopes
+            Daily Horoscopes.
           </h2>
           <div className="flex items-center mt-6 justify-center gap-4 h-auto flex-wrap">
             {renderAstrologyCard()}
