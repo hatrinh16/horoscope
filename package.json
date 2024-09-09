@@ -16,6 +16,7 @@
     "@mui/material": "^5.15.19",
     "@next/third-parties": "^14.2.3",
     "@tabler/icons-react": "^2.46.0",
+    "date-fns": "^3.6.0",
     "next": "14.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",

@@ -5,8 +5,8 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 32px;
-    border-bottom: solid 1px #ffd8d9;
-    border-top: solid 1px #ffd8d9;
+    border-bottom: solid 1px #dedede;
+    border-top: solid 1px #dedede;
     z-index: 10;
   }
   
@@ -23,7 +23,7 @@
     padding: 16px;
     border-radius: var(--mantine-radius-sm);
     text-decoration: none;
-    color: #380950;
+    color: #212121;
     font-size: 20px;
     font-weight: 500;
   

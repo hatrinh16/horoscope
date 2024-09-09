@@ -6,7 +6,7 @@ import { useDisclosure } from "@mantine/hooks";
 // Fetch data
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function AstrologyCard({ sign, icon }) {
+function AstrologyCard({ sign, img }) {
   const { data, error, isLoading } = useSWR(
     `${process.env.NEXT_PUBLIC_API_URL}/daily/${sign}`,
     fetcher
@@ -29,7 +29,9 @@ function AstrologyCard({ sign, icon }) {
   return (
     <>
       <div onClick={handleClick} className="card">
-        <div className="sign-icon">{icon}</div>
+        <div className="sign-icon">
+          <img src={img} className="w-[80%]" />
+        </div>
         <div className="sign-name">{capitalizedSign}</div>
       </div>
     </>
