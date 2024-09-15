@@ -63,7 +63,7 @@ function Energy({ sign }) {
       <ul className="w-full lg:w-[80%] p-0">
         {energyIndex.map((energyData, index) => (
           <li key={index} className="flex items-center mb-2">
-            <label className="flex-shrink-0 w-1/4 lg:w-1/6">
+            <label className="flex-shrink-0 w-1/3 lg:w-1/6">
               {energyData.label}
             </label>
             <div className="flex-grow h-4">
