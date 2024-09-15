@@ -32,7 +32,7 @@ const PlanetPosition = () => {
   return (
     <div className="flex flex-col items-start justify-start text-justify">
       {planetPositions.length > 0 ? (
-        <div className="p-4 bg-[#FFF4DD] rounded-lg">
+        <div className="p-4 rounded-lg border-solid border-[#FFE09C]">
           <table className="mt-2 table-auto border-collapse w-full ">
             <tbody>
               {planetPositions.map((planetData, index) => (

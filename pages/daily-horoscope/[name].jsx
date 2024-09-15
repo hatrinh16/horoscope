@@ -104,14 +104,14 @@ export default function SignDetails() {
             </Box>
             {renderContent()}
           </div>
-          <div className="flex flex-col items-start justify-start text-justify">
+          <div className="flex flex-col items-start justify-start text-justify mt-8">
             <h2 className="text-lg md:text-2xl lg:text-[32px] whitespace-nowrap">
               Planet Positions
             </h2>
             <PlanetPosition />
           </div>
         </div>
-        <div className="w-4/5 items-start">
+        <div className="w-4/5 items-start mt-8 lg:mt-0">
           <div className="flex flex-col items-start justify-start">
             <h2 className="text-lg md:text-2xl lg:text-[32px]">Daily Energy</h2>
             <Energy />

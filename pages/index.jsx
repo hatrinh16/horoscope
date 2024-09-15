@@ -170,12 +170,12 @@ export default function IndexPage() {
       </div>
 
       {/* More horoscope */}
-      <div className="flex flex-row w-4/5 items-start justify-center text-[#212121] mb-8">
-        <div className="w-full p-4">
+      <div className="flex flex-col w-full items-start justify-center text-[#212121] mb-8">
+        <div className="flex flex-col w-full items-center p-4">
           <h2 className="text-lg md:text-2xl lg:text-[32px] text-center">
             More Horoscopes
           </h2>
-          <div className="flex items-center justify-center gap-4 w-full">
+          <div className="flex flex-wrap items-center justify-center gap-4 w-full">
             <div className="card bg-[#B0E0E6]">
               <div>2024 Horoscope</div>
             </div>
