@@ -7,10 +7,11 @@ import classes from './HeaderMenu.module.css';
 const links = [
   { link: '#1', label: 'Horoscopes',
     links: [
-      { link: '/daily-horoscopes', label: 'Daily Horoscopes'},
-     { link: '/weekly-horoscopes', label: 'Weekly Horoscopes'},
-     { link: '/monthly-horoscopes', label: 'Monthly Horoscopes'},
-     { link: '/year', label: 'Yearly Horoscope'}
+      { link: '/', label: 'Daily Horoscopes'},
+     { link: '/love', label: 'Love Horoscopes'},
+     { link: '/career', label: 'Career Horoscopes'},
+     { link: '/finance', label: 'Finance Horoscope'},
+     { link: '/romance', label: 'Romance Horoscope'}
     ]
    },
   {

@@ -4,7 +4,6 @@ import { useContext } from "react";
 import AstrologyCard from "../components/AstrologyCard";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-// import Header from "../components/Header";
 import {
   IconZodiacAquarius,
   IconZodiacAries,
@@ -177,16 +176,24 @@ export default function IndexPage() {
             More Horoscopes
           </h2>
           <div className="flex items-center justify-center gap-4 w-full">
-            <div className="card btn">
-              <div className="monthly">Monthly Horoscope</div>
+            <div className="card bg-[#B0E0E6]">
+              <div>2024 Horoscope</div>
+            </div>
+
+            <div className="card bg-[#FFC1C1]">
+              <div className="text-center">Love Horoscope</div>
             </div>
 
             <div className="card btn">
-              <div className="yearly">2024 Horoscope</div>
+              <div className="text-center">Career Horoscope</div>
             </div>
 
-            <div className="card btn">
-              <div className="work">Work Horoscope</div>
+            <div className="card bg-[#D4F1C5]">
+              <div className="text-center">Romance Horoscope</div>
+            </div>
+
+            <div className="card bg-[#FBC6A4]">
+              <div className="text-center">Finance Horoscope</div>
             </div>
           </div>
         </div>

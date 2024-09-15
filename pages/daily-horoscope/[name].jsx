@@ -8,6 +8,7 @@ import { HeaderMenu } from "../../components/HeaderMenu";
 import { FooterLinks } from "../../components/FooterLinks";
 import { format, startOfWeek, endOfWeek } from "date-fns";
 import PlanetPosition from "../../components/PlanetPosition";
+import Energy from "../../components/Energy";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -20,7 +21,7 @@ export default function SignDetails() {
     fetcher
   );
 
-  const [tabIndex, setTabIndex] = useState(0);
+  const [tabIndex, setTabIndex] = useState(1);
   const handleChange = (event, newValue) => {
     setTabIndex(newValue);
   };
@@ -89,8 +90,8 @@ export default function SignDetails() {
         </span>
       </div>
       <div className="w-4/5 items-start">
-        <div className="flex flex-row gap-32 w-full items-start justify-start  text-[#212121]">
-          <div className="flex flex-col w-full lg:w-[50%] items-start justify-start text-justify">
+        <div className="flex flex-row w-full items-start justify-between  text-[#212121]">
+          <div className="flex flex-col w-full lg:w-[60%] items-start justify-start text-justify">
             <h2 className="text-lg md:text-2xl lg:text-[32px]">
               Daily Horoscope
             </h2>
@@ -110,12 +111,18 @@ export default function SignDetails() {
             <PlanetPosition />
           </div>
         </div>
-        <div className="flex flex-col w-full lg:w-4/5 items-start justify-start text-[#212121]">
+        <div className="w-4/5 items-start">
           <div className="flex flex-col items-start justify-start">
+            <h2 className="text-lg md:text-2xl lg:text-[32px]">Daily Energy</h2>
+            <Energy />
+          </div>
+        </div>
+        <div className="flex flex-col w-full lg:w-4/5 items-start justify-start text-[#212121] mt-10">
+          <div className="flex flex-col items-start justify-start w-full lg:w-[80%]">
             <h2 className="text-lg md:text-2xl lg:text-[32px]">
               More Horoscopes for {capitalizedSign}
             </h2>
-            <div className="flex gap-4 flex-wrap">
+            <div className="flex gap-4 flex-wrap justify-start mt-4">
               <div
                 className="card cursor-pointer btn"
                 onClick={() => router.push(`/weekly-horoscope/${name}`)}
@@ -124,12 +131,18 @@ export default function SignDetails() {
                 <div className="text-sm">{weekRange}</div>
               </div>
 
-              <div className="card btn">
+              <div
+                className="card btn"
+                onClick={() => router.push(`/monthly-horoscope/${name}`)}
+              >
                 <div className="monthly">Monthly</div>
                 <div className="text-sm">{thisMonth}</div>
               </div>
 
-              <div className="card btn">
+              <div
+                className="card btn"
+                onClick={() => router.push(`/yearly-overview/${name}`)}
+              >
                 <div className="yearly">Yearly</div>
                 <div className="text-sm">{thisYear}</div>
               </div>

@@ -5,7 +5,7 @@ import { LoadingOverlay } from "@mantine/core";
 import React, { useState } from "react";
 import { HeaderMenu } from "../../components/HeaderMenu";
 import { FooterLinks } from "../../components/FooterLinks";
-import { format } from "date-fns";
+import { format, startOfWeek, endOfWeek } from "date-fns";
 import PlanetPosition from "../../components/PlanetPosition";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -16,7 +16,7 @@ export default function SignDetails() {
 
   console.log(router.query.name);
   const { data, error, isLoading } = useSWR(
-    name ? `${process.env.NEXT_PUBLIC_API_URL}/weekly/${name}` : null,
+    name ? `${process.env.NEXT_PUBLIC_API_URL}/annual/${name}` : null,
     fetcher
   );
 
@@ -24,7 +24,7 @@ export default function SignDetails() {
     e.preventDefault();
     router.push("/");
   };
-  const renderWeeklyContent = () => {
+  const renderYearlyContent = () => {
     if (isLoading) {
       return <LoadingOverlay visible={isLoading} />;
     }
@@ -35,14 +35,32 @@ export default function SignDetails() {
       return null;
     }
 
-    // Render the weekly horoscope content in a more readable format
-    return <p>{data.data}</p>;
+    const paragraphs = data.data[0].split(
+      /\r\n\r\n\r\n\n\n\r\n| \r\n\n\n\r\n|\r\n/
+    );
+
+    return paragraphs.map((paragraph, index) => (
+      <p key={index} className="mb-0">
+        {paragraph.split(/(Love|Money|Business)/g).map((part, idx) => {
+          if (["Love", "Money", "Business"].includes(part)) {
+            return <strong key={idx}>{part}</strong>; // Make these specific words bold
+          }
+          return <span key={idx}>{part}</span>; // Leave the rest of the text unchanged
+        })}
+      </p>
+    ));
   };
   const capitalizedSign = name
     ? name.charAt(0).toUpperCase() + name.slice(1)
     : "";
 
   const today = format(new Date(), "MMMM d, yyyy");
+  const startDate = startOfWeek(new Date(), { weekStartsOn: 1 });
+  const endDate = endOfWeek(new Date(), { weekStartsOn: 1 });
+  const weekRange = `${format(startDate, "MMM d")} - ${format(
+    endDate,
+    "MMM d"
+  )}`;
   const thisMonth = format(new Date(), "MMMM");
   const thisYear = format(new Date(), "yyyy");
 
@@ -66,9 +84,9 @@ export default function SignDetails() {
         <div className="flex flex-row w-full items-start justify-between">
           <div className="flex flex-col lg:w-[60%] items-start justify-start text-justify">
             <h2 className="text-lg md:text-2xl lg:text-[32px]">
-              Weekly Horoscope
+              2024 Horoscope
             </h2>
-            {renderWeeklyContent()}
+            {renderYearlyContent()}
           </div>
           <div className="flex flex-col items-start justify-start text-justify">
             <h2 className="text-lg md:text-2xl lg:text-[32px] whitespace-nowrap">
@@ -92,14 +110,17 @@ export default function SignDetails() {
               </div>
               <div
                 className="card btn"
+                onClick={() => router.push(`/weekly-horoscope/${name}`)}
+              >
+                <div className="monthly">Weekly</div>
+                <div className="text-sm">{weekRange}</div>
+              </div>
+              <div
+                className="card btn"
                 onClick={() => router.push(`/monthly-horoscope/${name}`)}
               >
-                <div className="monthly">Monthly</div>
+                <div className="yearly">Monthly</div>
                 <div className="text-sm">{thisMonth}</div>
-              </div>
-              <div className="card btn">
-                <div className="yearly">Yearly</div>
-                <div className="text-sm">{thisYear}</div>
               </div>
             </div>
           </div>
