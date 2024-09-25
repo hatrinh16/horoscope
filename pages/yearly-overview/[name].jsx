@@ -88,12 +88,6 @@ export default function SignDetails() {
             </h2>
             {renderYearlyContent()}
           </div>
-          <div className="flex flex-col items-start justify-start text-justify">
-            <h2 className="text-lg md:text-2xl lg:text-[32px] whitespace-nowrap">
-              Planet Positions
-            </h2>
-            <PlanetPosition />
-          </div>
         </div>
         <div className="flex flex-col w-full items-start justify-between text-[#212121] mt-10">
           <div className="flex flex-col items-start justify-start">

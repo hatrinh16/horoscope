@@ -59,11 +59,11 @@ function Energy({ sign }) {
   };
 
   return (
-    <div className="flex w-full">
+    <div className="flex w-full items-center justify-center">
       <ul className="w-full lg:w-[80%] p-0">
         {energyIndex.map((energyData, index) => (
           <li key={index} className="flex items-center mb-2">
-            <label className="flex-shrink-0 w-1/3 lg:w-1/6">
+            <label className="flex-shrink-0 w-1/3 lg:w-1/4">
               {energyData.label}
             </label>
             <div className="flex-grow h-4">
@@ -72,7 +72,7 @@ function Energy({ sign }) {
                 style={{ width: `${energyData.spans[2]}%` }}
               ></span>
             </div>
-            <span className="flex-shrink-0 w-1/4 ml-1 text-left">
+            <span className="flex-shrink-0 w-1/4 ml-1 text-center">
               {energyData.spans[2]}%
             </span>
           </li>

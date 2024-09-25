@@ -60,10 +60,11 @@ background-clip: text;
     cursor: pointer;
 }
 .btn {
-  background: #FFF8E8;
+  border: solid 1px #212121;
 }
 .btn:hover {
     background: #FFE09C;
+    border: solid 1px #FFE09C;
 }
 
 @media (max-width: 768px) {
