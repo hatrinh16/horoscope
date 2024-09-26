@@ -26,10 +26,6 @@ const links = [
   },
   { link: '/tarot', label: 'Tarot' },
   { link: '/numerology', label: 'Numerology' },
-  {
-    link: '/good-days-calendars',
-    label: 'Good Days Calendars',
-  },
 ];
 
 export function HeaderMenu() {

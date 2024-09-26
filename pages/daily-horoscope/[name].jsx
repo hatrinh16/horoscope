@@ -106,7 +106,7 @@ export default function SignDetails() {
           </div>
         </div>
         <div className="w-full lg:w-3/5 items-start mt-8 lg:mt-32 ">
-          <div className="flex flex-col w-full items-start justify-start rounded bg-[#FFF8E8] p-8">
+          <div className="flex flex-col w-full items-start justify-start rounded bg-[#FFF8E8] bg-[url('/bg-un.png')] bg-contain p-8">
             {/* <h2 className="text-lg md:text-2xl lg:text-[32px]">Daily Energy</h2> */}
             <Energy />
           </div>

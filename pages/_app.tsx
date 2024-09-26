@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }: any) {
             name="description"
             content="Discover your daily horoscope and get insights into your future with DailyAstro. Stay informed with personalized astrological readings and celestial guidance tailored to your zodiac sign."
            />
-          <link rel="shortcut icon" href="/fav.png" />
+          <link rel="shortcut icon" href="/favicon.png" />
         </Head>
         <Component {...pageProps} />
       </AppProvider>
