@@ -84,7 +84,7 @@ export default function SignDetails() {
         <div className="flex flex-row w-full items-start justify-between">
           <div className="flex flex-col lg:w-[60%] items-start justify-start text-justify">
             <h2 className="text-lg md:text-2xl lg:text-[32px]">
-              2024 Horoscope
+              2025 Horoscope
             </h2>
             {renderYearlyContent()}
           </div>
