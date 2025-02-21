@@ -6,27 +6,28 @@
 }
 
 main {
-    background: white;
+    background: rgb(0, 0, 0);
+    color: rgb(225, 225, 225);
 }
 
 h1 {
     font-weight: 700;
-    background: var(--Primary);
+    /* background: var(--Primary);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
 }
 
 h2 {
     font-weight: 500;
-    background: #212121;
+    background: #ffffff;
 background-clip: text;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 }
 
 .sign-name {
-    color: #212121;
+    color: #ffffff;
     font-size: 20px;
     line-height: 28px;
     font-weight: 400;
@@ -65,6 +66,7 @@ background-clip: text;
 .btn:hover {
     background: #FFE09C;
     border: solid 1px #FFE09C;
+    color: #212121;
 }
 
 @media (max-width: 768px) {

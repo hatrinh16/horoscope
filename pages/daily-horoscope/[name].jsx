@@ -74,7 +74,7 @@ export default function SignDetails() {
   )}`;
 
   return (
-    <main className="flex flex-col w-full bg-white items-center">
+    <main className="flex flex-col w-full items-center">
       <div className="flex flex-col items-center z-10">
         <img
           src="/logo.png"
@@ -90,28 +90,32 @@ export default function SignDetails() {
         </span>
       </div>
       <div className="w-4/5 items-start">
-        <div className="flex flex-row w-full items-start justify-between  text-[#212121]">
+        <div className="flex flex-row w-full items-start justify-between">
           <div className="flex flex-col w-full lg:w-[60%] items-start justify-start text-justify">
             <h2 className="text-lg md:text-2xl lg:text-[32px]">
               Daily Horoscope
             </h2>
-            <Box sx={{ width: "100%", bgcolor: "background.paper" }}>
+            <Box
+              sx={{
+                width: "100%",
+              }}
+            >
               <Tabs value={tabIndex} onChange={handleChange} started>
-                <Tab label="Yesterday" />
-                <Tab label="Today" />
-                <Tab label="Tomorrow" />
+                <Tab label="Yesterday" sx={{ color: "#e1e1e1" }} />
+                <Tab label="Today" sx={{ color: "#e1e1e1" }} />
+                <Tab label="Tomorrow" sx={{ color: "#e1e1e1" }} />
               </Tabs>
             </Box>
             {renderContent()}
           </div>
         </div>
         <div className="w-full lg:w-3/5 items-start mt-8 lg:mt-32 ">
-          <div className="flex flex-col w-full items-start justify-start rounded bg-[#FFF8E8] bg-[url('/bg-un.png')] bg-contain p-8">
+          <div className="flex flex-col w-full items-start justify-start rounded bg-[#303030] bg-[url('/bg-energy.png')] bg-contain p-8">
             {/* <h2 className="text-lg md:text-2xl lg:text-[32px]">Daily Energy</h2> */}
             <Energy />
           </div>
         </div>
-        <div className="flex flex-col w-full lg:w-4/5 items-start justify-start text-[#212121] mt-10">
+        <div className="flex flex-col w-full lg:w-4/5 items-start justify-start mt-10">
           <div className="flex flex-col items-start justify-start w-full lg:w-[80%]">
             <h2 className="text-lg md:text-2xl lg:text-[32px]">
               More Horoscopes for {capitalizedSign}

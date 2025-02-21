@@ -140,7 +140,7 @@ export default function IndexPage() {
   }
 
   return (
-    <main className="flex flex-col w-full bg-white items-center">
+    <main className="flex flex-col w-full items-center">
       <GoogleAnalytics gaId="G-CJL0S39WM9" />
 
       {/* logo */}
@@ -177,14 +177,14 @@ export default function IndexPage() {
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-4 w-full">
             <div className="card bg-[#B0E0E6]">
-              <div>2024 Horoscope</div>
+              <div>2025 Horoscope</div>
             </div>
 
             <div className="card bg-[#FFC1C1]">
               <div className="text-center">Love Horoscope</div>
             </div>
 
-            <div className="card btn">
+            <div className="card  bg-[#e1e1e1] btn">
               <div className="text-center">Career Horoscope</div>
             </div>
 

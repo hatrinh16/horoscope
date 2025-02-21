@@ -110,7 +110,7 @@ export default function IndexPage() {
   }
 
   return (
-    <main className="flex flex-col w-full bg-white items-center">
+    <main className="flex flex-col w-full items-center">
       <GoogleAnalytics gaId="G-CJL0S39WM9" />
 
       {/* logo */}

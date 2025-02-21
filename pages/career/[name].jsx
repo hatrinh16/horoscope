@@ -55,7 +55,7 @@ export default function SignDetails() {
   const thisYear = format(new Date(), "yyyy");
 
   return (
-    <main className="flex flex-col w-full bg-white items-center">
+    <main className="flex flex-col w-full items-center">
       <div className="flex flex-col items-center z-10">
         <img
           src="/logo.png"

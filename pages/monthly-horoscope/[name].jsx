@@ -55,7 +55,7 @@ export default function SignDetails() {
   const thisYear = format(new Date(), "yyyy");
 
   return (
-    <main className="flex flex-col w-full bg-white items-center">
+    <main className="flex flex-col w-full items-center">
       <div className="flex flex-col items-center z-10">
         <img
           src="/logo.png"
@@ -70,7 +70,7 @@ export default function SignDetails() {
           🌟 {capitalizedSign} Horoscope 🌟
         </span>
       </div>
-      <div className="w-4/5 items-start  text-[#212121]">
+      <div className="w-4/5 items-start">
         <div className="flex flex-row w-full items-start justify-between">
           <div className="flex flex-col lg:w-[60%] items-start justify-start text-justify">
             <h2 className="text-lg md:text-2xl lg:text-[32px]">
@@ -79,7 +79,7 @@ export default function SignDetails() {
             {renderMonthlyContent()}
           </div>
         </div>
-        <div className="flex flex-col w-full items-start justify-between text-[#212121] mt-10">
+        <div className="flex flex-col w-full items-start justify-between mt-10">
           <div className="flex flex-col items-start justify-start">
             <h2 className="text-lg md:text-2xl lg:text-[32px]">
               More Horoscopes for {capitalizedSign}

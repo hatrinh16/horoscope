@@ -7,7 +7,7 @@ export function FooterLinks() {
     <div className={classes.footer}>
       <Container className={classes.inner}>
         <Text size='sm' c="dimmed">
-        © 2024 DailyAstro. All rights reserved.
+        © 2025 DailyAstro. All rights reserved.
         </Text>
         <Group gap={0} className={classes.links} justify="flex-end" wrap="nowrap">
           <ActionIcon size="lg" color="gray" variant="subtle">
