@@ -6,7 +6,6 @@ import React, { useState } from "react";
 import { HeaderMenu } from "../../components/HeaderMenu";
 import { FooterLinks } from "../../components/FooterLinks";
 import { format } from "date-fns";
-import PlanetPosition from "../../components/PlanetPosition";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -56,24 +55,31 @@ export default function SignDetails() {
           onClick={navigateToHomePage}
         />
       </div>
+      <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
+        <div className="stars"></div>
+        <div className="sun"></div>
+        <div className="moon"></div>
+        <div className="star"></div>
+        <div className="bolide"></div>
+      </div>
       <HeaderMenu />
       <div>
         <span className="sign-name text-lg md:text-xl lg:text-2xl font-normal">
           🌟 {capitalizedSign} Horoscope 🌟
         </span>
       </div>
-      <div className="w-4/5 items-start ">
+      <div className="flex flex-col w-full md:w-3/5 items-start justify-center">
         <div className="flex flex-row w-full items-start justify-between">
-          <div className="flex flex-col lg:w-[60%] items-start justify-start text-justify">
-            <h2 className="text-lg md:text-2xl lg:text-[32px]">
+          <div className="flex flex-col items-start justify-start text-justify">
+            <h2 className="text-lg md:text-2xl lg:text-3xl">
               Weekly Horoscope
             </h2>
             {renderWeeklyContent()}
           </div>
         </div>
-        <div className="flex flex-col w-full items-start justify-between mt-10">
+        <div className="flex flex-col w-full items-start justify-start mt-10">
           <div className="flex flex-col items-start justify-start">
-            <h2 className="text-lg md:text-2xl lg:text-[32px]">
+            <h2 className="text-lg md:text-2xl lg:text-3xl">
               More Horoscopes for {capitalizedSign}
             </h2>
             <div className="flex gap-4 flex-wrap">

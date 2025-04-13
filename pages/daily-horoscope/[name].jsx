@@ -83,16 +83,23 @@ export default function SignDetails() {
           onClick={navigateToHomePage} // Navigate to homepage on click
         />
       </div>
+      <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
+        <div className="stars"></div>
+        <div className="sun"></div>
+        <div className="moon"></div>
+        <div className="star"></div>
+        <div className="bolide"></div>
+      </div>
       <HeaderMenu />
       <div>
         <span className="sign-name text-lg md:text-xl lg:text-2xl font-normal">
           🌟 {capitalizedSign} Horoscope 🌟
         </span>
       </div>
-      <div className="w-4/5 items-start">
-        <div className="flex flex-row w-full items-start justify-between">
-          <div className="flex flex-col w-full lg:w-[60%] items-start justify-start text-justify">
-            <h2 className="text-lg md:text-2xl lg:text-[32px]">
+  
+      <div className="flex w-full md:w3/5 items-start justify-center">
+          <div className="flex flex-col w-full md:w-3/5 items-start justify-center text-justify">
+            <h2 className="text-lg md:text-2xl lg:text-3xl">
               Daily Horoscope
             </h2>
             <Box
@@ -109,15 +116,14 @@ export default function SignDetails() {
             {renderContent()}
           </div>
         </div>
-        <div className="w-full lg:w-3/5 items-start mt-8 lg:mt-32 ">
-          <div className="flex flex-col w-full items-start justify-start rounded bg-[#303030] bg-[url('/bg-energy.png')] bg-contain p-8">
-            {/* <h2 className="text-lg md:text-2xl lg:text-[32px]">Daily Energy</h2> */}
+        <div className="w-full lg:w-3/5 items-center mt-8 lg:mt-24 ">
+          <div className="flex flex-col w-full items-start justify-start rounded  bg-white bg-opacity-10 p-8">
             <Energy />
           </div>
         </div>
-        <div className="flex flex-col w-full lg:w-4/5 items-start justify-start mt-10">
-          <div className="flex flex-col items-start justify-start w-full lg:w-[80%]">
-            <h2 className="text-lg md:text-2xl lg:text-[32px]">
+    
+          <div className="flex flex-col items-start justify-center w-full lg:w-3/5">
+            <h2 className="text-lg md:text-2xl lg:text-3xl">
               More Horoscopes for {capitalizedSign}
             </h2>
             <div className="flex gap-4 flex-wrap justify-start mt-4">
@@ -146,8 +152,6 @@ export default function SignDetails() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
       <FooterLinks />
     </main>
   );

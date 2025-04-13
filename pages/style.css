@@ -5,10 +5,149 @@
     --style-2: linear-gradient(208deg, #FF989A -47.3%, #FFCACB 42.98%, #FFC6CC 50.42%, #CF93C4 131.78%, #B784B7 148.3%);
 }
 
-main {
-    background: rgb(0, 0, 0);
-    color: rgb(225, 225, 225);
+body {
+  background: radial-gradient(ellipse at bottom, #0b0c1a 0%, #000000 100%);
+  overflow-x: hidden;
+  color: white;
 }
+
+/* Stars - subtle sparkle background */
+.stars {
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow:
+    5vw 10vh white, 15vw 30vh white, 25vw 60vh white,
+    35vw 20vh white, 45vw 70vh white, 55vw 50vh white,
+    65vw 90vh white, 75vw 40vh white, 85vw 80vh white,
+    95vw 30vh white;
+  animation: twinkle 4s infinite alternate;
+}
+
+/* Sun */
+.sun {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, #fff200, #f39c12);
+  border-radius: 50%;
+  top: 30%;
+  left: 50%;
+  box-shadow: 0 0 60px 20px rgba(255, 242, 0, 0.5);
+  animation: pulse 6s infinite ease-in-out;
+}
+
+/* Moon */
+.moon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, #dcdcdc, #a9a9a9);
+  border-radius: 50%;
+  top: 40%;
+  left: 40%;
+  box-shadow: 0 0 30px 5px rgba(255, 255, 255, 0.2);
+  animation: float 5s ease-in-out infinite;
+  overflow: hidden;
+}
+
+/* Crescent shape by overlaying a dark circle */
+.moon::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #0b0c1a;
+  border-radius: 50%;
+  left: 12px; /* adjust for crescent thickness */
+  top: 0;
+}
+
+
+/* Star (larger twinkle) */
+.star {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  top: 20%;
+  left: 60%;
+  box-shadow: 0 0 20px 5px white;
+  animation: starTwinkle 2s infinite alternate;
+}
+
+/* Shooting star */
+.bolide {
+  position: absolute;
+  width: 8px;
+  height: 4px;
+  background: linear-gradient(to right, white, transparent);
+  top: 5%;
+  left: -10%;
+  transform: rotate(45deg);
+  animation: shoot 6s infinite linear;
+}
+
+/* Animations */
+@keyframes twinkle {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes starTwinkle {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes shoot {
+  0% {
+    left: -10%;
+    top: 5%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    left: 110%;
+    top: 50%;
+    opacity: 0;
+  }
+}
+
+
 
 h1 {
     font-weight: 700;
@@ -45,7 +184,7 @@ background-clip: text;
     width: 192px;
     height: auto;
     flex-direction: column;
-    border-radius: 6px;
+    border-radius: 100px;
     display: inline-flex;
     padding: 16px 8px 16px 8px;
     flex-direction: column;
@@ -57,11 +196,11 @@ background-clip: text;
     }
 }
 .card:hover {
-    background: #FFE09C;
+    /* background: #FFE09C; */
     cursor: pointer;
 }
 .btn {
-  border: solid 1px #212121;
+  border: solid 1px #fff;
 }
 .btn:hover {
     background: #FFE09C;

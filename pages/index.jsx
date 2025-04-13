@@ -3,23 +3,10 @@ import { AppContext } from "../components/AppContext";
 import { useContext } from "react";
 import AstrologyCard from "../components/AstrologyCard";
 import { GoogleAnalytics } from "@next/third-parties/google";
-
-import {
-  IconZodiacAquarius,
-  IconZodiacAries,
-  IconZodiacCancer,
-  IconZodiacCapricorn,
-  IconZodiacGemini,
-  IconZodiacLeo,
-  IconZodiacLibra,
-  IconZodiacSagittarius,
-  IconZodiacScorpio,
-  IconZodiacTaurus,
-  IconZodiacVirgo,
-} from "@tabler/icons-react";
 import { HeaderMenu } from "../components/HeaderMenu";
 import { FooterLinks } from "../components/FooterLinks";
 import Header from "../components/Header";
+import { CardOfTheDay } from "../components/CardOfTheDay";
 
 const starSign = [
   {
@@ -98,24 +85,18 @@ const starSign = [
 
 export default function IndexPage() {
   const date = useContext(AppContext);
+  const sign = getSign();
 
   function renderAstrologyCard() {
-    if (date) {
-      const sign = getSign();
-      return <AstrologyCard sign={sign.sign} img={sign.image} />;
-    }
-    let list = [];
-    starSign.forEach((item, index) => {
-      list.push(
+    return starSign.map((item, index) => (
+     
         <AstrologyCard
           key={index}
           sign={item.sign}
           img={item.image}
           horoscope={item.data}
         />
-      );
-    });
-    return list;
+    ));
   }
 
   function getSign() {
@@ -152,15 +133,20 @@ export default function IndexPage() {
         />
       </div>
 
+      <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
+        <div className="stars"></div>
+        <div className="sun"></div>
+        <div className="moon"></div>
+        <div className="star"></div>
+        <div className="bolide"></div>
+      </div>
+
       <HeaderMenu />
 
-      {/* Choose sign */}
-      {/* <Header /> */}
-
       {/* Daily horoscope */}
-      <div className="flex flex-row w-full lg:w-4/5 mt-4 items-start text-[#212121] justify-center z-10">
-        <div className="w-full lg:w-[75%] p-4">
-          <h2 className="text-lg md:text-2xl lg:text-[32px] text-center">
+      <div className="flex flex-row w-full lg:w-4/5 mt-4 items-start justify-center">
+        <div className="w-full lg:w-3/4 p-4">
+          <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold text-center">
             Daily Horoscopes
           </h2>
           <div className="flex items-center mt-6 justify-center gap-4 h-auto flex-wrap">
@@ -169,30 +155,33 @@ export default function IndexPage() {
         </div>
       </div>
 
+      {/* Choose sign */}
+      <Header selectedSign={sign} />
+      <CardOfTheDay/>
       {/* More horoscope */}
-      <div className="flex flex-col w-full items-start justify-center text-[#212121] mb-8">
+      <div className="flex flex-col w-full items-start justify-center mb-8">
         <div className="flex flex-col w-full items-center p-4">
-          <h2 className="text-lg md:text-2xl lg:text-[32px] text-center">
+          <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold text-center">
             More Horoscopes
           </h2>
-          <div className="flex flex-wrap items-center justify-center gap-4 w-full">
-            <div className="card bg-[#B0E0E6]">
+          <div className="flex flex-wrap items-center justify-center gap-4 w-full mt-6">
+            <div className="card btn">
               <div>2025 Horoscope</div>
             </div>
 
-            <div className="card bg-[#FFC1C1]">
+            <div className="card btn">
               <div className="text-center">Love Horoscope</div>
             </div>
 
-            <div className="card  bg-[#e1e1e1] btn">
+            <div className="card btn">
               <div className="text-center">Career Horoscope</div>
             </div>
 
-            <div className="card bg-[#D4F1C5]">
+            <div className="card btn">
               <div className="text-center">Romance Horoscope</div>
             </div>
 
-            <div className="card bg-[#FBC6A4]">
+            <div className="card btn">
               <div className="text-center">Finance Horoscope</div>
             </div>
           </div>
