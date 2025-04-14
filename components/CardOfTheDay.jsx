@@ -16,7 +16,7 @@ export const CardOfTheDay = () => {
   useEffect(() => {
     const fetchCard = async () => {
       try {
-        const res = await fetch('http://localhost:8080/card-of-the-day');
+        const res = await fetch('${process.env.NEXT_PUBLIC_API_URL}/card-of-the-day');
         const data = await res.json();
 
         if (data.error) {
