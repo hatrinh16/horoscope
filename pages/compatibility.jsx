@@ -86,7 +86,7 @@ export default function CompatibilityForm() {
         
         <HeaderMenu/>
         <div className="p-6 w-full md:w-3/5 mx-auto text-center">
-      <h2 className="text-3xl font-bold mb-6">Check Compatibility</h2>
+      <h2 className="text-lg md:text-2xl lg:text-3xl mb-6">Check Compatibility</h2>
 
       <div className="space-y-4">
         <div className="space-x-4">

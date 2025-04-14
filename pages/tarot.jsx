@@ -67,7 +67,7 @@ const TarotReader = () => {
 
     <HeaderMenu/>
     <div className="w-full min-h-screen py-10 px-4 text-center">
-      <h1 className="text-4xl font-bold text-white mb-2">Tarot Reading</h1>
+      <h2 className="text-lg md:text-2xl lg:text-3xl mb-2">Tarot Reading</h2>
       <p className="mb-6 text-gray-400">Ask a question and let the cards speak...</p>
 
       <div className="flex flex-col items-center gap-4 w-full md:w-3/5 mx-auto">
@@ -90,17 +90,17 @@ const TarotReader = () => {
           <img
             src="/tarot-2.png"
             alt="tarot-1"
-            className="absolute w-32 h-auto rounded-md shadow-lg transform rotate-[-30deg] -translate-x-20 z-20"
+            className="absolute w-32 h-auto rounded-md shadow-lg transform rotate-[-30deg] -translate-x-20 z-20 bg-white bg-opacity-10"
           />
           <img
             src="/tarot-1.png"
             alt="tarot-2"
-            className="absolute w-36 h-auto rounded-md shadow-lg z-30"
+            className="absolute w-36 h-auto rounded-md shadow-lg z-30 bg-white bg-opacity-10"
           />
           <img
             src="/tarot-3.png"
             alt="tarot-3"
-            className="absolute w-32 h-auto rounded-md shadow-lg transform rotate-[30deg] translate-x-20 z-20"
+            className="absolute w-32 h-auto rounded-md shadow-lg transform rotate-[30deg] translate-x-20 z-20 bg-white bg-opacity-10"
           />
         </div>)}
         {loading && <p className="text-gray-500">✨ Shuffling the deck...</p>}

@@ -60,9 +60,9 @@ function Header() {
   }
 
   return (
-    <div className="bg-white bg-opacity-10 p-6 rounded-xl shadow-lg max-w-4xl mx-auto w-full">
-      <div className="w-full flex flex-col items-center gap-4 mt-4">
-        <h2 className="text-lg font-bold md:text-2xl  text-center">Find Your Sign</h2>
+    <div className="bg-white bg-opacity-10 p-10 mx-6 rounded-xl shadow-lg">
+      <div className=" flex flex-col items-center gap-4">
+        <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold text-center">Find Your Sign</h2>
 
         <div className="flex gap-2">
           <input
@@ -70,7 +70,7 @@ function Header() {
             value={day}
             onChange={(e) => setDay(e.target.value)}
             placeholder="Day"
-            className="w-40 p-2 rounded text-black border-transparent"
+            className="w-20 md:w-40 p-2 rounded text-black border-transparent"
             min="1"
             max="31"
           />
@@ -79,7 +79,7 @@ function Header() {
             value={month}
             onChange={(e) => setMonth(e.target.value)}
             placeholder="Month"
-            className="w-40 p-2 rounded text-black border-transparent"
+            className="w-20 md:w-40 p-2 rounded text-black border-transparent"
             min="1"
             max="12"
           />
@@ -88,7 +88,7 @@ function Header() {
             value={year}
             onChange={(e) => setYear(e.target.value)}
             placeholder="Year"
-            className="w-40 p-2 rounded text-black border-transparent"
+            className="w-32 md:w-40 p-2 rounded text-black border-transparent"
             min="1900"
             max="2100"
           />

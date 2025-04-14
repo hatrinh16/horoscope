@@ -77,10 +77,10 @@ export default function SignDetails() {
           🌟 {capitalizedSign} Horoscope 🌟
         </span>
       </div>
-      <div className="w-full md:w-3/5 justify-center items-start">
+      <div className="w-full md:w-3/5 justify-center items-start p-6">
         <div className="flex flex-row w-full items-start justify-between">
           <div className="flex flex-col items-start justify-start text-justify">
-            <h2 className="text-lg md:text-2xl lg:text-[32px]">
+            <h2 className="text-lg md:text-2xl lg:text-3xl">
               Monthly Horoscope
             </h2>
             {renderMonthlyContent()}
@@ -88,7 +88,7 @@ export default function SignDetails() {
         </div>
         <div className="flex flex-col w-full items-start justify-between mt-10">
           <div className="flex flex-col items-start justify-start">
-            <h2 className="text-lg md:text-2xl lg:text-[32px]">
+            <h2 className="text-lg md:text-2xl lg:text-3xl">
               More Horoscopes for {capitalizedSign}
             </h2>
             <div className="flex gap-4 flex-wrap">

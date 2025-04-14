@@ -97,7 +97,7 @@ export default function SignDetails() {
         </span>
       </div>
   
-      <div className="flex w-full md:w3/5 items-start justify-center">
+      <div className="flex w-full md:w3/5 items-start justify-center p-6">
           <div className="flex flex-col w-full md:w-3/5 items-start justify-center text-justify">
             <h2 className="text-lg md:text-2xl lg:text-3xl">
               Daily Horoscope
@@ -116,13 +116,13 @@ export default function SignDetails() {
             {renderContent()}
           </div>
         </div>
-        <div className="w-full lg:w-3/5 items-center mt-8 lg:mt-24 ">
+        <div className="w-full lg:w-3/5 items-center mt-8 lg:mt-24 p-6">
           <div className="flex flex-col w-full items-start justify-start rounded  bg-white bg-opacity-10 p-8">
             <Energy />
           </div>
         </div>
     
-          <div className="flex flex-col items-start justify-center w-full lg:w-3/5">
+          <div className="flex flex-col items-start justify-center w-full lg:w-3/5 p-6">
             <h2 className="text-lg md:text-2xl lg:text-3xl">
               More Horoscopes for {capitalizedSign}
             </h2>

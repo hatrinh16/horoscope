@@ -42,10 +42,10 @@ export const CardOfTheDay = () => {
   const imageName = formatCardName(card); // e.g. "cups-ace"
 
   return (
-    <div className="bg-white bg-opacity-10 p-6 rounded-xl shadow-lg max-w-4xl mx-auto mt-10">
-  <h2 className="text-2xl font-bold text-yellow-400 mb-6 text-center">Card of the Day</h2>
+    <div className="bg-white bg-opacity-10 p-6 rounded-xl shadow-lg max-w-4xl md:mx-auto mt-10 mx-6">
+    <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold text-center">Card of the Day</h2>
   
-  <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+    <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
     <img
       src={`/tarot-card/${imageName}.png`}
       alt={card}

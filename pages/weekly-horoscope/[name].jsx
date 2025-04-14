@@ -68,7 +68,7 @@ export default function SignDetails() {
           🌟 {capitalizedSign} Horoscope 🌟
         </span>
       </div>
-      <div className="flex flex-col w-full md:w-3/5 items-start justify-center">
+      <div className="flex flex-col w-full md:w-3/5 items-start justify-center p-6">
         <div className="flex flex-row w-full items-start justify-between">
           <div className="flex flex-col items-start justify-start text-justify">
             <h2 className="text-lg md:text-2xl lg:text-3xl">
@@ -77,7 +77,7 @@ export default function SignDetails() {
             {renderWeeklyContent()}
           </div>
         </div>
-        <div className="flex flex-col w-full items-start justify-start mt-10">
+      
           <div className="flex flex-col items-start justify-start">
             <h2 className="text-lg md:text-2xl lg:text-3xl">
               More Horoscopes for {capitalizedSign}
@@ -102,7 +102,6 @@ export default function SignDetails() {
                 <div className="text-sm">{thisYear}</div>
               </div>
             </div>
-          </div>
         </div>
       </div>
       <FooterLinks />
