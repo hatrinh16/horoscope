@@ -108,7 +108,7 @@ export default function CompatibilityForm() {
           value={partnerSign}
           onChange={(e) => setPartnerSign(e.target.value)}
         >
-          <option value="">Select Partner's Sign</option>
+          <option value="">{`Select Partner's Sign`}</option>
           {SIGNS.map((sign) => (
             <option key={sign} value={sign}>
               {sign}

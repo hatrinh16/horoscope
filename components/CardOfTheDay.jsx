@@ -36,7 +36,7 @@ export const CardOfTheDay = () => {
     fetchCard();
   }, []);
 
-  if (loading) return <p className="text-center text-gray-500">✨ Drawing today's energy...</p>;
+  if (loading) return <p className="text-center text-gray-500">{`✨ Drawing today's energy...`}</p>;
   if (error) return <p className="text-center text-red-500">{error}</p>;
 
   const imageName = formatCardName(card); // e.g. "cups-ace"
