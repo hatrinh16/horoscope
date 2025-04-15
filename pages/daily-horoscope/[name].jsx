@@ -15,13 +15,18 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 export default function SignDetails() {
   const router = useRouter();
   const { name } = router.query;
+  const [tabIndex, setTabIndex] = useState(1);
   console.log(router.query.name);
+
+  const dayMapping = ['yesterday', 'today', 'tomorrow'];
+  const day = dayMapping[tabIndex];
+
   const { data, error, isLoading } = useSWR(
-    name ? `${process.env.NEXT_PUBLIC_API_URL}/daily/${name}` : null,
+    name ? `${process.env.NEXT_PUBLIC_API_URL}/daily/${name}/${day}` : null,
     fetcher
   );
 
-  const [tabIndex, setTabIndex] = useState(1);
+  
   const handleChange = (event, newValue) => {
     setTabIndex(newValue);
   };
@@ -39,21 +44,25 @@ export default function SignDetails() {
     if (!data) {
       return null;
     }
+    // Safe check: Ensure data is defined and is a string
+    if (!data || typeof data.data !== 'string') {
+      return <div>No data available.</div>;
+    }
+    
     const cleanText = (text) => {
       return text ? text.replace(/Astroyogi/gi, "") : "";
     };
 
-    const firstData = cleanText(data.data[0]);
-    const secondData = cleanText(data.data[1]);
-    const thirdData = cleanText(data.data[2]);
+
+    const cleanData = cleanText(data.data)
 
     switch (tabIndex) {
       case 0:
-        return <div>{firstData}</div>;
+        return <div>{cleanData}</div>;
       case 1:
-        return <div>{secondData}</div>;
+        return <div>{cleanData}</div>;
       case 2:
-        return <div>{thirdData}</div>;
+        return <div>{cleanData}</div>;
       default:
         return null;
     }

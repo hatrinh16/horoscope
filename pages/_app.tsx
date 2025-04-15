@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: any) {
     <MantineProvider theme={theme}>
       <AppProvider>
         <Head>
-          <title>Daily Horoscope | DailyAstro</title>
+          <title>Daily Horoscope | Free Astrology Prediction</title>
           <meta name="google-site-verification" content="Z7Xj1mON6jtmxhfHYq1IjUEfdly8pa49_OLX_yFl0QA" />
           <meta
             name="viewport"
@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }: any) {
           />
           <meta
             name="description"
-            content="Discover your daily horoscope and get insights into your future with DailyAstro. Stay informed with personalized astrological readings and celestial guidance tailored to your zodiac sign."
+            content="Get free, personalized horoscopes and astrology predictions for today, tailored to your zodiac sign."
            />
           <link rel="shortcut icon" href="/favicon.png" />
         </Head>
