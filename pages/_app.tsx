@@ -25,6 +25,8 @@ export default function App({ Component, pageProps }: any) {
            />
           <link rel="shortcut icon" href="/favicon.png" />
         </Head>
+        <GoogleAnalytics gaId="G-CJL0S39WM9" />
+
         <Component {...pageProps} />
       </AppProvider>
     </MantineProvider>
