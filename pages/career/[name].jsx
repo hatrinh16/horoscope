@@ -5,16 +5,50 @@ import { LoadingOverlay } from "@mantine/core";
 import React, { useState } from "react";
 import { HeaderMenu } from "../../components/HeaderMenu";
 import { FooterLinks } from "../../components/FooterLinks";
-import { format, startOfWeek, endOfWeek } from "date-fns";
-import PlanetPosition from "../../components/PlanetPosition";
+import { format, startOfWeek, endOfWeek, isThisMonth } from "date-fns";
+import ZodiacCalendar from "../../components/Calendar";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
+export async function getStaticPaths() {
+  // List all valid `name` values here
+  const names = [
+    'aries',
+    'taurus',
+    'gemini',
+    'cancer',
+    'leo',
+    'virgo',
+    'libra',
+    'scorpio',
+    'sagittarius',
+    'capricorn',
+    'aquarius',
+    'pisces',
+  ];
 
-export default function SignDetails() {
+  const paths = names.map((name) => ({
+    params: { name },
+  }));
+
+  return {
+    paths,
+    fallback: false, 
+  };
+}
+
+export async function getStaticProps({ params }) {
+  return {
+    props: {
+      name: params.name,
+    },
+  };
+}
+
+export default function SignDetails({name}) {
   const router = useRouter();
-  const { name } = router.query;
+  // const { name } = router.query;
 
-  console.log(router.query.name);
+  // console.log(router.query.name);
   const { data, error, isLoading } = useSWR(
     name ? `${process.env.NEXT_PUBLIC_API_URL}/career/${name}` : null,
     fetcher
@@ -24,7 +58,7 @@ export default function SignDetails() {
     e.preventDefault();
     router.push("/");
   };
-  const renderMonthlyContent = () => {
+  const renderCareerContent = () => {
     if (isLoading) {
       return <LoadingOverlay visible={isLoading} />;
     }
@@ -52,6 +86,7 @@ export default function SignDetails() {
     endDate,
     "MMM d"
   )}`;
+  const thisMonth = format(new Date(), "MMMM");
   const thisYear = format(new Date(), "yyyy");
 
   return (
@@ -64,30 +99,31 @@ export default function SignDetails() {
           onClick={navigateToHomePage}
         />
       </div>
+      <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
+        <div className="stars"></div>
+        <div className="sun"></div>
+        <div className="moon"></div>
+        <div className="star"></div>
+        <div className="bolide"></div>
+      </div>
       <HeaderMenu />
       <div>
         <span className="sign-name text-lg md:text-xl lg:text-2xl font-normal">
           🌟 {capitalizedSign} Horoscope 🌟
         </span>
       </div>
-      <div className="w-4/5 items-start  text-[#212121]">
+      <div className="w-full md:w-3/5 justify-center items-start p-6">
         <div className="flex flex-row w-full items-start justify-between">
-          <div className="flex flex-col lg:w-[60%] items-start justify-start text-justify">
-            <h2 className="text-lg md:text-2xl lg:text-[32px]">
-              {capitalizedSign} at Work
-            </h2>
-            {renderMonthlyContent()}
-          </div>
           <div className="flex flex-col items-start justify-start text-justify">
-            <h2 className="text-lg md:text-2xl lg:text-[32px] whitespace-nowrap">
-              Planet Positions
+            <h2 className="text-lg md:text-2xl lg:text-3xl">
+              Monthly Career Horoscope
             </h2>
-            <PlanetPosition />
+            {renderCareerContent()}
           </div>
         </div>
-        <div className="flex flex-col w-full items-start justify-between text-[#212121] mt-10">
+        <div className="flex flex-col w-full items-start justify-between mt-10">
           <div className="flex flex-col items-start justify-start">
-            <h2 className="text-lg md:text-2xl lg:text-[32px]">
+            <h2 className="text-lg md:text-2xl lg:text-3xl">
               More Horoscopes for {capitalizedSign}
             </h2>
             <div className="flex gap-4 flex-wrap">
@@ -112,9 +148,17 @@ export default function SignDetails() {
                 <div className="yearly">Yearly</div>
                 <div className="text-sm">{thisYear}</div>
               </div>
+              <div
+                className="card btn"
+                onClick={() => router.push(`/love/${name}`)}
+              >
+                <div className="yearly">{capitalizedSign} Love</div>
+                <div className="text-sm">{thisMonth}</div>
+              </div>
             </div>
           </div>
         </div>
+        
       </div>
       <FooterLinks />
     </main>

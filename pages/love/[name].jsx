@@ -6,10 +6,9 @@ import React, { useState } from "react";
 import { HeaderMenu } from "../../components/HeaderMenu";
 import { FooterLinks } from "../../components/FooterLinks";
 import { format, startOfWeek, endOfWeek } from "date-fns";
-import PlanetPosition from "../../components/PlanetPosition";
+import ZodiacCalendar from "../../components/Calendar";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
-
 export async function getStaticPaths() {
   // List all valid `name` values here
   const names = [
@@ -51,7 +50,7 @@ export default function SignDetails({name}) {
 
   // console.log(router.query.name);
   const { data, error, isLoading } = useSWR(
-    name ? `${process.env.NEXT_PUBLIC_API_URL}/annual/${name}` : null,
+    name ? `${process.env.NEXT_PUBLIC_API_URL}/monthly/${name}` : null,
     fetcher
   );
 
@@ -59,7 +58,7 @@ export default function SignDetails({name}) {
     e.preventDefault();
     router.push("/");
   };
-  const renderYearlyContent = () => {
+  const renderLoveContent = () => {
     if (isLoading) {
       return <LoadingOverlay visible={isLoading} />;
     }
@@ -70,18 +69,9 @@ export default function SignDetails({name}) {
       return null;
     }
 
-    const paragraphs = data.data[0].split(
-      /\r\n\r\n\r\n\n\n\r\n| \r\n\n\n\r\n|\r\n/
-    );
-
-    return paragraphs.map((paragraph, index) => (
-      <p key={index} className="mb-0">
-        {paragraph.split(/(Love|Money|Business)/g).map((part, idx) => {
-          if (["Love", "Money", "Business"].includes(part)) {
-            return <strong key={idx}>{part}</strong>; // Make these specific words bold
-          }
-          return <span key={idx}>{part}</span>; // Leave the rest of the text unchanged
-        })}
+    return data.data.map((paragraph, index) => (
+      <p key={index} className="mb-1">
+        {paragraph}
       </p>
     ));
   };
@@ -122,16 +112,16 @@ export default function SignDetails({name}) {
           🌟 {capitalizedSign} Horoscope 🌟
         </span>
       </div>
-      <div className="w-full md:w-3/5 justify-center items-start ">
+      <div className="w-full md:w-3/5 justify-center items-start p-6">
         <div className="flex flex-row w-full items-start justify-between">
-          <div className="flex flex-col items-start justify-start text-justify p-6">
+          <div className="flex flex-col items-start justify-start text-justify">
             <h2 className="text-lg md:text-2xl lg:text-3xl">
-              2025 Horoscope
+            Monthly Love Horoscope
             </h2>
-            {renderYearlyContent()}
+            {renderLoveContent()}
           </div>
         </div>
-        <div className="flex flex-col w-full items-start justify-between mt-10 p-6">
+        <div className="flex flex-col w-full items-start justify-between mt-10">
           <div className="flex flex-col items-start justify-start">
             <h2 className="text-lg md:text-2xl lg:text-3xl">
               More Horoscopes for {capitalizedSign}
@@ -153,19 +143,11 @@ export default function SignDetails({name}) {
               </div>
               <div
                 className="card btn"
-                onClick={() => router.push(`/monthly-horoscope/${name}`)}
+                onClick={() => router.push(`/yearly-overview/${name}`)}
               >
-                <div className="yearly">Monthly</div>
-                <div className="text-sm">{thisMonth}</div>
+                <div className="yearly">Yearly</div>
+                <div className="text-sm">{thisYear}</div>
               </div>
-              <div
-                className="card btn"
-                onClick={() => router.push(`/love/${name}`)}
-              >
-                <div className="yearly">{capitalizedSign} Love</div>
-                <div className="text-sm">{thisMonth}</div>
-              </div>
-
               <div
                 className="card btn"
                 onClick={() => router.push(`/career/${name}`)}
@@ -176,6 +158,7 @@ export default function SignDetails({name}) {
             </div>
           </div>
         </div>
+        
       </div>
       <FooterLinks />
     </main>

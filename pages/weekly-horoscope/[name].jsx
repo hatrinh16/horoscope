@@ -132,9 +132,25 @@ export default function SignDetails({name}) {
                 <div className="monthly">Monthly</div>
                 <div className="text-sm">{thisMonth}</div>
               </div>
-              <div className="card btn">
+              <div className="card btn"
+              onClick={() => router.push(`/yearly-overview/${name}`)}>
                 <div className="yearly">Yearly</div>
                 <div className="text-sm">{thisYear}</div>
+              </div>
+              <div
+                className="card btn"
+                onClick={() => router.push(`/love/${name}`)}
+              >
+                <div className="yearly">{capitalizedSign} Love</div>
+                <div className="text-sm">{thisMonth}</div>
+              </div>
+
+              <div
+                className="card btn"
+                onClick={() => router.push(`/career/${name}`)}
+              >
+                <div className="yearly">{capitalizedSign} Career</div>
+                <div className="text-sm">{thisMonth}</div>
               </div>
             </div>
         </div>

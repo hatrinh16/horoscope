@@ -7,6 +7,7 @@ import { HeaderMenu } from "../components/HeaderMenu";
 import { FooterLinks } from "../components/FooterLinks";
 import Header from "../components/Header";
 import { CardOfTheDay } from "../components/CardOfTheDay";
+import HoroscopeLinks from "../components/MoreHoroscopes";
 
 const starSign = [
   {
@@ -157,32 +158,12 @@ export default function IndexPage() {
       <Header selectedSign={sign} />
       <CardOfTheDay/>
       {/* More horoscope */}
-      <div className="flex flex-col w-full items-start justify-center mb-8">
+      <div className="flex flex-col w-full items-center justify-center mb-4">
         <div className="flex flex-col w-full items-center p-4">
           <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold text-center">
             More Horoscopes
           </h2>
-          <div className="flex flex-wrap items-center justify-center gap-4 w-full mt-6">
-            <div className="card btn">
-              <div>2025 Horoscope</div>
-            </div>
-
-            <div className="card btn">
-              <div className="text-center">Love Horoscope</div>
-            </div>
-
-            <div className="card btn">
-              <div className="text-center">Career Horoscope</div>
-            </div>
-
-            <div className="card btn">
-              <div className="text-center">Romance Horoscope</div>
-            </div>
-
-            <div className="card btn">
-              <div className="text-center">Finance Horoscope</div>
-            </div>
-          </div>
+          <HoroscopeLinks/>
         </div>
       </div>
       <FooterLinks />
