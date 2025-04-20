@@ -10,11 +10,46 @@ import PlanetPosition from "../../components/PlanetPosition";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-export default function SignDetails() {
-  const router = useRouter();
-  const { name } = router.query;
+export async function getStaticPaths() {
+  // List all valid `name` values here
+  const names = [
+    'aries',
+    'taurus',
+    'gemini',
+    'cancer',
+    'leo',
+    'virgo',
+    'libra',
+    'scorpio',
+    'sagittarius',
+    'capricorn',
+    'aquarius',
+    'pisces',
+  ];
 
-  console.log(router.query.name);
+  const paths = names.map((name) => ({
+    params: { name },
+  }));
+
+  return {
+    paths,
+    fallback: false, 
+  };
+}
+
+export async function getStaticProps({ params }) {
+  return {
+    props: {
+      name: params.name,
+    },
+  };
+}
+
+export default function SignDetails({name}) {
+  const router = useRouter();
+  // const { name } = router.query;
+
+  // console.log(router.query.name);
   const { data, error, isLoading } = useSWR(
     name ? `${process.env.NEXT_PUBLIC_API_URL}/annual/${name}` : null,
     fetcher

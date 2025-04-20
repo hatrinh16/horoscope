@@ -27,7 +27,7 @@ const links = [
       { link: '', label: 'Zodiac Signs' },
     ],
   },
-  { link: '/tarot', label: 'Tarot' },
+  { link: '/tarot', label: 'AI Tarot' },
   { link: '/compatibility', label: 'Compatibility' },
 ];
 
