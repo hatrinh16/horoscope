@@ -28,7 +28,7 @@ const links = [
     ],
   },
   { link: '/tarot', label: 'AI Tarot' },
-  { link: '/compatibility', label: 'Compatibility' },
+  { link: '/#', label: 'Compatibility' },
 ];
 
 export function HeaderMenu() {

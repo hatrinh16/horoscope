@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { FooterLinks } from '../components/FooterLinks';
 import { HeaderMenu } from '../components/HeaderMenu';
+import HoroscopeLinks from "../components/MoreHoroscopes";
 
 
 export default function CompatibilityForm() {
@@ -85,8 +86,8 @@ export default function CompatibilityForm() {
         </div>
         
         <HeaderMenu/>
-        <div className="p-6 w-full md:w-3/5 mx-auto text-center">
-      <h2 className="text-lg md:text-2xl lg:text-3xl mb-6">Check Compatibility</h2>
+    <div className="p-6 w-full md:w-3/5 mx-auto text-center">
+        <h2 className="text-lg md:text-2xl lg:text-3xl mb-6">Check Compatibility</h2>
 
       <div className="space-y-4">
         <div className="space-x-4">
@@ -153,7 +154,14 @@ export default function CompatibilityForm() {
           )}
         </div>
       )}
-    </div>
+      </div>
+    
+      <div>
+      <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold text-center">
+            More Horoscopes
+          </h2>
+          <HoroscopeLinks/>
+      </div>
     <FooterLinks/>
     </main>
   );

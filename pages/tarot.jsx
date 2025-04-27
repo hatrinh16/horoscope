@@ -67,7 +67,7 @@ const TarotReader = () => {
 
     <HeaderMenu/>
     <div className="w-full min-h-screen py-10 px-4 text-center">
-      <h2 className="text-lg md:text-2xl lg:text-3xl mb-2">Tarot Reading</h2>
+      <h2 className="text-lg md:text-2xl lg:text-3xl mb-2">AI Tarot Reading</h2>
       <p className="mb-6 text-gray-400">Ask a question and let the cards speak...</p>
 
       <div className="flex flex-col items-center gap-4 w-full md:w-3/5 mx-auto">
@@ -95,7 +95,7 @@ const TarotReader = () => {
           <img
             src="/tarot-1.png"
             alt="tarot-2"
-            className="absolute w-36 h-auto rounded-md shadow-lg z-30 bg-white bg-opacity-10"
+            className="absolute w-36 h-auto rounded-md shadow-lg z-30 bg-white bg-opacity-5"
           />
           <img
             src="/tarot-3.png"

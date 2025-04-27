@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import { HeaderMenu } from "../../components/HeaderMenu";
 import { FooterLinks } from "../../components/FooterLinks";
 import { format, startOfWeek, endOfWeek, isThisMonth } from "date-fns";
+import SeeOtherSigns from "../../components/SeeOtherSigns";
 import ZodiacCalendar from "../../components/Calendar";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -116,50 +117,65 @@ export default function SignDetails({name}) {
         <div className="flex flex-row w-full items-start justify-between">
           <div className="flex flex-col items-start justify-start text-justify">
             <h2 className="text-lg md:text-2xl lg:text-3xl">
-              Monthly Career Horoscope
+              Career Horoscope
             </h2>
             {renderCareerContent()}
           </div>
         </div>
-        <div className="flex flex-col w-full items-start justify-between mt-10">
-          <div className="flex flex-col items-start justify-start">
+      </div>
+      <div className="flex flex-col items-start justify-center w-full lg:w-3/5 p-6">
             <h2 className="text-lg md:text-2xl lg:text-3xl">
               More Horoscopes for {capitalizedSign}
             </h2>
-            <div className="flex gap-4 flex-wrap">
+            <div className="mt-8 w-full bg-white bg-opacity-5 rounded p-8">
+
+              <div className="grid grid-cols-2 gap-4">
               <div
-                className="card cursor-pointer btn"
-                onClick={() => router.push(`/daily-horoscope/${name}`)}
-              >
-                <div className="daily">Daily</div>
-                <div className="text-sm">{today}</div>
-              </div>
-              <div
-                className="card btn"
+                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4  hover:bg-white hover:bg-opacity-5 transition-all"
                 onClick={() => router.push(`/weekly-horoscope/${name}`)}
               >
-                <div className="monthly">Weekly</div>
+                <div className="font-semibold">Daily</div>
+                <div className="text-sm">{today}</div>
+              </div>
+
+              <div
+                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4  hover:bg-white hover:bg-opacity-5 transition-all"
+                onClick={() => router.push(`/weekly-horoscope/${name}`)}
+              >
+                <div className="font-semibold">Weekly</div>
                 <div className="text-sm">{weekRange}</div>
               </div>
+
               <div
-                className="card btn"
-                onClick={() => router.push(`/yearly-overview/${name}`)}
+                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4  hover:bg-white hover:bg-opacity-5 transition-all"
+                onClick={() => router.push(`/monthly-horoscope/${name}`)}
               >
-                <div className="yearly">Yearly</div>
-                <div className="text-sm">{thisYear}</div>
-              </div>
-              <div
-                className="card btn"
-                onClick={() => router.push(`/love/${name}`)}
-              >
-                <div className="yearly">{capitalizedSign} Love</div>
+                <div className="font-semibold">Monthly</div>
                 <div className="text-sm">{thisMonth}</div>
               </div>
-            </div>
-          </div>
+
+              <div
+                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4  hover:bg-white hover:bg-opacity-5 transition-all"
+                onClick={() => router.push(`/yearly-overview/${name}`)}
+              >
+                <div className="font-semibold">Yearly</div>
+                <div className="text-sm">{thisYear}</div>
+              </div>
+
+
+              <div
+                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4 hover:bg-white hover:bg-opacity-5 transition-all"
+                onClick={() => router.push(`/career/${name}`)}
+              >
+                <div className="font-semibold">{capitalizedSign} Love</div>
+                <div className="text-sm">{thisMonth}</div>
+              </div>
+              </div>
+           </div>
         </div>
-        
-      </div>
+      <div className="w-full lg:w-3/5 items-center p-6">
+          <SeeOtherSigns name={name}/>
+       </div>
       <FooterLinks />
     </main>
   );

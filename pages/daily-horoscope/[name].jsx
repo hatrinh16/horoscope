@@ -9,6 +9,7 @@ import { FooterLinks } from "../../components/FooterLinks";
 import { format, startOfWeek, endOfWeek } from "date-fns";
 import PlanetPosition from "../../components/PlanetPosition";
 import Energy from "../../components/Energy";
+import SeeOtherSigns from "../../components/SeeOtherSigns";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 export async function getStaticPaths() {
@@ -134,7 +135,7 @@ export default function SignDetails({ name }) {
         </span>
       </div>
   
-      <div className="flex w-full md:w3/5 items-start justify-center p-6">
+      <div className="flex w-full items-start justify-center p-6">
           <div className="flex flex-col w-full md:w-3/5 items-start justify-center text-justify">
             <h2 className="text-lg md:text-2xl lg:text-3xl">
               Daily Horoscope
@@ -153,8 +154,8 @@ export default function SignDetails({ name }) {
             {renderContent()}
           </div>
         </div>
-        <div className="w-full lg:w-3/5 items-center mt-8 lg:mt-24 p-6">
-          <div className="flex flex-col w-full items-start justify-start rounded  bg-white bg-opacity-10 p-8">
+        <div className="w-full lg:w-3/5 items-center mt-4 p-6">
+          <div className="flex flex-col w-full items-start justify-start rounded  bg-white bg-opacity-5 p-8">
             <Energy />
           </div>
         </div>
@@ -163,47 +164,55 @@ export default function SignDetails({ name }) {
             <h2 className="text-lg md:text-2xl lg:text-3xl">
               More Horoscopes for {capitalizedSign}
             </h2>
-            <div className="flex gap-4 flex-wrap justify-start mt-4">
+            
+            <div className="mt-8 w-full bg-white bg-opacity-5 rounded p-8">
+
+            <div className="grid grid-cols-2 gap-4">
               <div
-                className="card cursor-pointer btn"
+                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4  hover:bg-white hover:bg-opacity-5 transition-all"
                 onClick={() => router.push(`/weekly-horoscope/${name}`)}
               >
-                <div className="weekly">Weekly</div>
+                <div className="font-semibold">Weekly</div>
                 <div className="text-sm">{weekRange}</div>
               </div>
 
               <div
-                className="card btn"
+                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4  hover:bg-white hover:bg-opacity-5 transition-all"
                 onClick={() => router.push(`/monthly-horoscope/${name}`)}
               >
-                <div className="monthly">Monthly</div>
+                <div className="font-semibold">Monthly</div>
                 <div className="text-sm">{thisMonth}</div>
               </div>
 
               <div
-                className="card btn"
+                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4  hover:bg-white hover:bg-opacity-5 transition-all"
                 onClick={() => router.push(`/yearly-overview/${name}`)}
               >
-                <div className="yearly">Yearly</div>
+                <div className="font-semibold">Yearly</div>
                 <div className="text-sm">{thisYear}</div>
               </div>
 
               <div
-                className="card btn"
+                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4  hover:bg-white hover:bg-opacity-5 transition-all"
                 onClick={() => router.push(`/love/${name}`)}
               >
-                <div className="yearly">{capitalizedSign} Love</div>
+                <div className="font-semibold">{capitalizedSign} Love</div>
                 <div className="text-sm">{thisMonth}</div>
               </div>
 
               <div
-                className="card btn"
+                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4 hover:bg-white hover:bg-opacity-5 transition-all"
                 onClick={() => router.push(`/career/${name}`)}
               >
-                <div className="yearly">{capitalizedSign} Career</div>
-                <div className="text-sm">{thisMonth}</div>
+                <div className="font-semibold">{capitalizedSign} Career</div>
+                <div className="text-sm">Horoscope</div>
               </div>
             </div>
+          </div>
+
+          </div>
+          <div className="w-full lg:w-3/5 items-center p-6">
+          <SeeOtherSigns name={name}/>
           </div>
       <FooterLinks />
     </main>
