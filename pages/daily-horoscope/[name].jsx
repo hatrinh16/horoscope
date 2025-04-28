@@ -47,12 +47,12 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function SignDetails({ name }) {
+export default function SignDetails({ name, day="today" }) {
   const router = useRouter();
   // const { name } = router.query;
   // console.log(router.query.name);
   const { data, error, isLoading } = useSWR(
-    name ? `${process.env.NEXT_PUBLIC_API_URL}/daily/${name}` : null,
+    name ? `${process.env.NEXT_PUBLIC_API_URL}/daily/${name}/${day}` : null,
     fetcher
   );
 
