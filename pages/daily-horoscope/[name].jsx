@@ -100,11 +100,21 @@ export default function SignDetails({ name }) {
 
     switch (tabIndex) {
       case 0:
-        return <div>{yesterdayData ? cleanText(yesterdayData.data) : "No data for yesterday."}</div>;
+        return (<div>
+          <div>{yesterdayData ? cleanText(yesterdayData.data) : "No data for yesterday."}</div>
+          <Energy sign={name} tabIndex={tabIndex} />
+        </div>);
+        
       case 1:
-        return <div>{todayData ? cleanText(todayData.data) : "No data for today."}</div>;
+        return (<div>
+          <div>{todayData ? cleanText(todayData.data) : "No data for today."}</div>
+          <Energy sign={name} tabIndex={tabIndex} />
+        </div>);
       case 2:
-        return <div>{tomorrowData ? cleanText(tomorrowData.data) : "No data for tomorrow."}</div>;
+        return (<div>
+          <div>{tomorrowData ? cleanText(tomorrowData.data) : "No data for tomorrow."}</div>
+          <Energy sign={name} tabIndex={tabIndex} />
+        </div>);
         default:
         return null;
     }
@@ -116,7 +126,7 @@ export default function SignDetails({ name }) {
 
   const thisMonth = format(new Date(), "MMMM");
   const thisYear = format(new Date(), "yyyy");
-
+  const today = format(new Date(), "MMMM d, yyyy");
   const startDate = startOfWeek(new Date(), { weekStartsOn: 1 });
   const endDate = endOfWeek(new Date(), { weekStartsOn: 1 });
   const weekRange = `${format(startDate, "MMM d")} - ${format(
@@ -153,6 +163,7 @@ export default function SignDetails({ name }) {
             <h2 className="text-lg md:text-2xl lg:text-3xl">
               Daily Horoscope
             </h2>
+            <div className="text-md italic">Today - {today}</div>
             <Box
               sx={{
                 width: "100%",
@@ -167,11 +178,11 @@ export default function SignDetails({ name }) {
             {renderContent()}
           </div>
         </div>
-        <div className="w-full lg:w-3/5 items-center mt-4 p-6">
+        {/* <div className="w-full lg:w-3/5 items-center mt-4 p-6">
           <div className="flex flex-col w-full items-start justify-start rounded  bg-white bg-opacity-5 p-8">
-            <Energy />
+            <Energy tabIndex={tabIndex} sign={name}/>
           </div>
-        </div>
+        </div> */}
     
           <div className="flex flex-col items-start justify-center w-full lg:w-3/5 p-6">
             <h2 className="text-lg md:text-2xl lg:text-3xl">
