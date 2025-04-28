@@ -47,12 +47,25 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function SignDetails({ name, day="today" }) {
+export default function SignDetails({ name }) {
   const router = useRouter();
   // const { name } = router.query;
   // console.log(router.query.name);
-  const { data, error, isLoading } = useSWR(
-    name ? `${process.env.NEXT_PUBLIC_API_URL}/daily/${name}/${day}` : null,
+  // const { data, error, isLoading } = useSWR(
+  //   name ? `${process.env.NEXT_PUBLIC_API_URL}/daily/${name}` : null,
+  //   fetcher
+  // );
+
+  const { data: todayData, error: todayError, isLoading: todayLoading } = useSWR(
+    router.isReady ? `${process.env.NEXT_PUBLIC_API_URL}/daily/${name}/today` : null,
+    fetcher
+  );
+  const { data: yesterdayData, error: yesterdayError, isLoading: yesterdayLoading } = useSWR(
+    router.isReady ? `${process.env.NEXT_PUBLIC_API_URL}/daily/${name}/yesterday` : null,
+    fetcher
+  );
+  const { data: tomorrowData, error: tomorrowError, isLoading: tomorrowLoading } = useSWR(
+    router.isReady ? `${process.env.NEXT_PUBLIC_API_URL}/daily/${name}/tomorrow` : null,
     fetcher
   );
 
@@ -65,34 +78,34 @@ export default function SignDetails({ name, day="today" }) {
     router.push("/");
   };
   const renderContent = () => {
-    if (isLoading) {
-      return <LoadingOverlay visible={isLoading} />;
+    if (todayLoading || yesterdayLoading || tomorrowLoading) {
+      return <LoadingOverlay visible={true} />;
     }
-    if (error) {
+    if (todayError || yesterdayError || tomorrowError) {
       return <div>Error loading data.</div>;
     }
     // if (!data) {
     //   return null;
     // }
-    if (!data || !Array.isArray(data.data) || data.data.length === 0) {
-      return null;
-    }
+    // if (!data || !Array.isArray(data.data) || data.data.length === 0) {
+    //   return null;
+    // }
     const cleanText = (text) => {
       return text ? text.replace(/Astroyogi/gi, "") : "";
     };
 
-    const firstData = cleanText(data.data[0] || "");
-    const secondData = cleanText(data.data[1] || "");
-    const thirdData = cleanText(data.data[2] || "");
+    // const firstData = cleanText(data.data[0] || "");
+    // const secondData = cleanText(data.data[1] || "");
+    // const thirdData = cleanText(data.data[2] || "");
 
     switch (tabIndex) {
       case 0:
-        return <div>{firstData}</div>;
+        return <div>{yesterdayData ? cleanText(yesterdayData.data) : "No data for yesterday."}</div>;
       case 1:
-        return <div>{secondData}</div>;
+        return <div>{todayData ? cleanText(todayData.data) : "No data for today."}</div>;
       case 2:
-        return <div>{thirdData}</div>;
-      default:
+        return <div>{tomorrowData ? cleanText(tomorrowData.data) : "No data for tomorrow."}</div>;
+        default:
         return null;
     }
   };
