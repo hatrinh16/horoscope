@@ -165,7 +165,7 @@ export default function SignDetails({name}) {
 
               <div
                 className="rounded cursor-pointer border-solid border border-[#6c757d] p-4 hover:bg-white hover:bg-opacity-5 transition-all"
-                onClick={() => router.push(`/career/${name}`)}
+                onClick={() => router.push(`/love/${name}`)}
               >
                 <div className="font-semibold">{capitalizedSign} Love</div>
                 <div className="text-sm">{thisMonth}</div>
