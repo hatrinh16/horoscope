@@ -70,11 +70,21 @@ export default function SignDetails({name}) {
       return null;
     }
 
-    return data.data.map((paragraph, index) => (
-      <p key={index} className="mb-1">
-        {paragraph}
-      </p>
-    ));
+   // Split the string into paragraphs based on newlines
+  const paragraphs = data.data
+    .split("\n")
+    .map((p) => p.trim())
+    .filter(
+      (p) =>
+        p.length > 0 &&
+        !p.toLowerCase().startsWith("overview for this month")
+    );
+
+  return paragraphs.map((paragraph, index) => (
+    <p key={index} className="mb-1">
+      {paragraph}
+    </p>
+  ));
   };
   const capitalizedSign = name
     ? name.charAt(0).toUpperCase() + name.slice(1)
