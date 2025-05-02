@@ -51,7 +51,7 @@ export default function SignDetails({name}) {
 
   // console.log(router.query.name);
   const { data, error, isLoading } = useSWR(
-    name ? `${process.env.NEXT_PUBLIC_API_URL}/monthly/${name}` : null,
+    name ? `${process.env.NEXT_PUBLIC_API_URL}/love/${name}` : null,
     fetcher
   );
 
@@ -69,6 +69,9 @@ export default function SignDetails({name}) {
     if (!data || !data.data) {
       return null;
     }
+    const paragraphs = data.data[0].split(
+      /\r\n\r\n\r\n\n\n\r\n| \r\n\n\n\r\n|\r\n/
+    );
 
     return data.data.map((paragraph, index) => (
       <p key={index} className="mb-1">
