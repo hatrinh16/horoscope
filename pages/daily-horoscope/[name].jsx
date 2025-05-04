@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import { LoadingOverlay } from "@mantine/core";
 import { Tabs, Tab, Box } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect  } from "react";
 import { HeaderMenu } from "../../components/HeaderMenu";
 import { FooterLinks } from "../../components/FooterLinks";
 import { format, startOfWeek, endOfWeek } from "date-fns";
@@ -12,8 +12,8 @@ import Energy from "../../components/Energy";
 import SeeOtherSigns from "../../components/SeeOtherSigns";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
+
 export async function getStaticPaths() {
-  // List all valid `name` values here
   const names = [
     'aries',
     'taurus',
@@ -49,12 +49,13 @@ export async function getStaticProps({ params }) {
 
 export default function SignDetails({ name }) {
   const router = useRouter();
-  // const { name } = router.query;
-  // console.log(router.query.name);
-  // const { data, error, isLoading } = useSWR(
-  //   name ? `${process.env.NEXT_PUBLIC_API_URL}/daily/${name}` : null,
-  //   fetcher
-  // );
+  
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Using useEffect to ensure this code only runs on the client side
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const { data: todayData, error: todayError, isLoading: todayLoading } = useSWR(
     router.isReady ? `${process.env.NEXT_PUBLIC_API_URL}/daily/${name}/today` : null,
@@ -73,10 +74,12 @@ export default function SignDetails({ name }) {
   const handleChange = (event, newValue) => {
     setTabIndex(newValue);
   };
+
   const navigateToHomePage = (e) => {
     e.preventDefault();
     router.push("/");
   };
+
   const renderContent = () => {
     if (todayLoading || yesterdayLoading || tomorrowLoading) {
       return <LoadingOverlay visible={true} />;
@@ -84,42 +87,60 @@ export default function SignDetails({ name }) {
     if (todayError || yesterdayError || tomorrowError) {
       return <div>Error loading data.</div>;
     }
-    // if (!data) {
-    //   return null;
-    // }
-    // if (!data || !Array.isArray(data.data) || data.data.length === 0) {
-    //   return null;
-    // }
+   
     const cleanText = (text) => {
       return text ? text.replace(/Astroyogi/gi, "") : "";
     };
 
-    // const firstData = cleanText(data.data[0] || "");
-    // const secondData = cleanText(data.data[1] || "");
-    // const thirdData = cleanText(data.data[2] || "");
+    const todayLuckyColor = todayData?.data?.luckyColor;
+    const yesterdayLuckyColor = yesterdayData?.data?.luckyColor;
+    const tomorrowLuckyColor = tomorrowData?.data?.luckyColor;
 
     switch (tabIndex) {
       case 0:
-        return (<div>
-          <div>{yesterdayData ? cleanText(yesterdayData.data) : "No data for yesterday."}</div>
-          <Energy sign={name} tabIndex={tabIndex} />
-        </div>);
+        return (
+          <div>
+            <div>{yesterdayData ? cleanText(yesterdayData.data.horoscope) : "No data for yesterday."}</div>
+            {yesterdayLuckyColor && (
+              <div>
+                <strong>Lucky Color for Yesterday:</strong> {yesterdayLuckyColor}
+              </div>
+            )}
+            <Energy sign={name} tabIndex={tabIndex} />
+          </div>
+        );
         
       case 1:
-        return (<div>
-          <div>{todayData ? cleanText(todayData.data) : "No data for today."}</div>
-          <Energy sign={name} tabIndex={tabIndex} />
-        </div>);
+        return (
+          <div>
+            <div>{todayData ? cleanText(todayData.data.horoscope) : "No data for today."}</div>
+            {todayLuckyColor && (
+              <div>
+                <strong>Lucky Color for Today:</strong> {todayLuckyColor}
+              </div>
+            )}
+            <Energy sign={name} tabIndex={tabIndex} />
+          </div>
+        );
+        
       case 2:
-        return (<div>
-          <div>{tomorrowData ? cleanText(tomorrowData.data) : "No data for tomorrow."}</div>
-          <Energy sign={name} tabIndex={tabIndex} />
-        </div>);
-        default:
+        return (
+          <div>
+            <div>{tomorrowData ? cleanText(tomorrowData.data.horoscope) : "No data for tomorrow."}</div>
+            {tomorrowLuckyColor && (
+              <div>
+                <strong>Lucky Color for Tomorrow:</strong> {tomorrowLuckyColor}
+              </div>
+            )}
+            <Energy sign={name} tabIndex={tabIndex} />
+          </div>
+        );
+        
+      default:
         return null;
     }
   };
-  // const secondData = data?.data?.[1];
+
   const capitalizedSign = name
     ? name.charAt(0).toUpperCase() + name.slice(1)
     : "";
@@ -129,10 +150,12 @@ export default function SignDetails({ name }) {
   const today = format(new Date(), "MMMM d, yyyy");
   const startDate = startOfWeek(new Date(), { weekStartsOn: 1 });
   const endDate = endOfWeek(new Date(), { weekStartsOn: 1 });
-  const weekRange = `${format(startDate, "MMM d")} - ${format(
-    endDate,
-    "MMM d"
-  )}`;
+  const weekRange = `${format(startDate, "MMM d")} - ${format(endDate, "MMM d")}`;
+
+  // Only render the content after the component has mounted to avoid hydration errors
+  if (!isMounted) {
+    return null; // This ensures the component doesn't render until mounted
+  }
 
   return (
     <main className="flex flex-col w-full items-center">
@@ -178,11 +201,6 @@ export default function SignDetails({ name }) {
             {renderContent()}
           </div>
         </div>
-        {/* <div className="w-full lg:w-3/5 items-center mt-4 p-6">
-          <div className="flex flex-col w-full items-start justify-start rounded  bg-white bg-opacity-5 p-8">
-            <Energy tabIndex={tabIndex} sign={name}/>
-          </div>
-        </div> */}
     
           <div className="flex flex-col items-start justify-center w-full lg:w-3/5 p-6">
             <h2 className="text-lg md:text-2xl lg:text-3xl">
