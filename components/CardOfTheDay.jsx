@@ -42,22 +42,35 @@ export const CardOfTheDay = () => {
   const imageName = formatCardName(card); // e.g. "cups-ace"
 
   return (
-    <div className="bg-white bg-opacity-10 p-6 rounded-xl shadow-lg max-w-4xl md:mx-auto mt-10 mx-6">
-    <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold text-center">Card of the Day</h2>
-  
-    <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-    <img
-      src={`/tarot-card/${imageName}.png`}
-      alt={card}
-      className="w-48 h-auto rounded-md shadow-md"
-    />
-
-    <div className="text-center md:text-left">
-      <h3 className="text-xl font-semibold text-white mb-2">{card}</h3>
-      <p className="text-gray-300 italic">{description}</p>
-    </div>
-  </div>
-</div>
-
+            <div className="w-full max-w-2xl mb-16">
+              <div className="cosmic-card rounded-xl p-8 relative overflow-hidden">
+                <div className="absolute -left-10 -top-10 w-40 h-auto rounded-full bg-logo-yellow opacity-10 blur-3xl"></div>
+                
+                <h3 className="text-xl font-semibold mb-6 text-center text-logo-yellow">Today's Tarot Insight</h3>
+                <div className="flex flex-col md:flex-row gap-6">
+                  <div className="md:w-3/5 relative">
+                    <div className="aspect-[2/3] rounded-lg overflow-hidden cosmic-card-highlight p-1 border border-logo-yellow/30">
+                    <img
+                      src={`/tarot-card/${imageName}.png`}
+                      alt={card}
+                      className="w-48 h-auto rounded-md shadow-md"
+                    />
+                    </div>
+                  </div>
+                  <div className="md:w-2/3">
+                    <h4 className="text-xl text-logo-yellow mb-2">Five of Wands</h4>
+                    <p className="text-gray-300 mb-6 italic">
+                      {description}
+                    </p>
+                    <button 
+                      className="cosmic-glass rounded-full px-6 py-2 text-sm border border-logo-yellow/30 hover:border-logo-yellow transition-colors"
+                      
+                    >
+                      Full Reading →
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
   );
 };

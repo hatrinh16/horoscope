@@ -4,8 +4,6 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 32px;
-  border: solid 1px #dedede;
-  border-radius: 64px;
   z-index: 10;
 }
 

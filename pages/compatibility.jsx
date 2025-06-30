@@ -68,26 +68,10 @@ export default function CompatibilityForm() {
 
   return (
     <main className="flex flex-col w-full items-center">
-         <div className="flex flex-col items-center z-10">
-                    <img
-                      src="/logo.png"
-                      alt="logo"
-                      className="mt-12 w-[60%] mb-4 cursor-pointer"
-                      onClick={navigateToHomePage}
-                    />
-        </div>
-        
-        <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
-                <div className="stars"></div>
-                <div className="sun"></div>
-                <div className="moon"></div>
-                <div className="star"></div>
-                <div className="bolide"></div>
-        </div>
         
         <HeaderMenu/>
-    <div className="p-6 w-full md:w-3/5 mx-auto text-center">
-        <h2 className="text-lg md:text-2xl lg:text-3xl mb-6">Check Compatibility</h2>
+      <div className="p-6 w-full md:w-3/5 mx-auto text-center mt-24">
+        <h1 className="text-lg md:text-2xl lg:text-3xl mb-6">Check Compatibility</h1>
 
       <div className="space-y-4">
         <div className="space-x-4">
@@ -157,9 +141,6 @@ export default function CompatibilityForm() {
       </div>
     
       <div>
-      <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold text-center">
-            More Horoscopes
-          </h2>
           <HoroscopeLinks/>
       </div>
     <FooterLinks/>

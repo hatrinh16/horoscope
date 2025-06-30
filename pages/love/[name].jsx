@@ -95,14 +95,7 @@ export default function SignDetails({name}) {
 
   return (
     <main className="flex flex-col w-full items-center">
-      <div className="flex flex-col items-center z-10">
-        <img
-          src="/logo.png"
-          alt="logo"
-          className="mt-12 w-[60%] mb-4 cursor-pointer"
-          onClick={navigateToHomePage}
-        />
-      </div>
+      
       <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
         <div className="stars"></div>
         <div className="sun"></div>
@@ -111,7 +104,7 @@ export default function SignDetails({name}) {
         <div className="bolide"></div>
       </div>
       <HeaderMenu />
-      <div>
+      <div className="mt-24">
         <span className="sign-name text-lg md:text-xl lg:text-2xl font-normal">
           🌟 {capitalizedSign} Horoscope 🌟
         </span>
@@ -159,7 +152,7 @@ export default function SignDetails({name}) {
 
               <div
                 className="rounded cursor-pointer border-solid border border-[#6c757d] p-4  hover:bg-white hover:bg-opacity-5 transition-all"
-                onClick={() => router.push(`/yearly-overview/${name}`)}
+                // onClick={() => router.push(`/yearly-overview/${name}`)}
               >
                 <div className="font-semibold">Yearly</div>
                 <div className="text-sm">{thisYear}</div>

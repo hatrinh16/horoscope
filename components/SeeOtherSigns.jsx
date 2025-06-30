@@ -13,8 +13,8 @@ const SeeOtherSigns = ({ name }) => {
   const otherSigns = zodiacSigns.filter(sign => sign.toLowerCase() !== currentSign);
 
   return (
-    <div className="mt-8 w-full flex flex-wrap items-start justify-start gap-4">
-      <h2 className="w-full text-lg md:text-2xl lg:text-3xl mb-6">See Other Signs</h2>
+    <div className="mt-8 w-full flex flex-wrap items-center justify-center gap-4">
+      <h2 className="w-full text-lg text-center md:text-2xl lg:text-3xl mb-6">See Other Signs</h2>
   
       {otherSigns.map(sign => (
         <Link

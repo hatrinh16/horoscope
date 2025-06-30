@@ -60,56 +60,100 @@ function Header() {
   }
 
   return (
-    <div className="bg-white bg-opacity-10 p-10 mx-6 rounded-xl shadow-lg">
-      <div className=" flex flex-col items-center gap-4">
-        <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold text-center">Find Your Sign</h2>
+    // <div className="bg-white bg-opacity-10 p-10 mx-6 rounded-xl shadow-lg">
+    //   <div className=" flex flex-col items-center gap-4">
+    //     <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold text-center">Find Your Sign</h2>
 
-        <div className="flex gap-2">
-          <input
-            type="number"
-            value={day}
-            onChange={(e) => setDay(e.target.value)}
-            placeholder="Day"
-            className="w-20 md:w-40 p-2 rounded text-black border-transparent"
-            min="1"
-            max="31"
-          />
-          <input
-            type="number"
-            value={month}
-            onChange={(e) => setMonth(e.target.value)}
-            placeholder="Month"
-            className="w-20 md:w-40 p-2 rounded text-black border-transparent"
-            min="1"
-            max="12"
-          />
-          <input
-            type="number"
-            value={year}
-            onChange={(e) => setYear(e.target.value)}
-            placeholder="Year"
-            className="w-32 md:w-40 p-2 rounded text-black border-transparent"
-            min="1900"
-            max="2100"
-          />
-        </div>
+    //     <div className="flex gap-2">
+    //       <input
+    //         type="number"
+    //         value={day}
+    //         onChange={(e) => setDay(e.target.value)}
+    //         placeholder="Day"
+    //         className="w-20 md:w-40 p-2 rounded text-black border-transparent"
+    //         min="1"
+    //         max="31"
+    //       />
+    //       <input
+    //         type="number"
+    //         value={month}
+    //         onChange={(e) => setMonth(e.target.value)}
+    //         placeholder="Month"
+    //         className="w-20 md:w-40 p-2 rounded text-black border-transparent"
+    //         min="1"
+    //         max="12"
+    //       />
+    //       <input
+    //         type="number"
+    //         value={year}
+    //         onChange={(e) => setYear(e.target.value)}
+    //         placeholder="Year"
+    //         className="w-32 md:w-40 p-2 rounded text-black border-transparent"
+    //         min="1900"
+    //         max="2100"
+    //       />
+    //     </div>
 
-        <button
-          onClick={handleFindSign}
-          className="hover:bg-[#f58a3e] bg-[#FF9100] text-white px-4 py-2 rounded-full mt-2 border-transparent"
-        >
-          Find My Sign
-        </button>
+    //     <button
+    //       onClick={handleFindSign}
+    //       className="hover:bg-[#f58a3e] bg-[#FF9100] text-white px-4 py-2 rounded-full mt-2 border-transparent"
+    //     >
+    //       Find My Sign
+    //     </button>
 
-        {selectedSign && (
-          <div className="mt-4 flex items-center gap-2 text-white">
-            <span>Your Zodiac Sign:</span>
-            <img src={selectedSign.image} alt={selectedSign.sign} className="w-10" />
-            <span className="text-xl capitalize">{selectedSign.sign}</span>
+    //     {selectedSign && (
+    //       <div className="mt-4 flex items-center gap-2 text-white">
+    //         <span>Your Zodiac Sign:</span>
+    //         <img src={selectedSign.image} alt={selectedSign.sign} className="w-10" />
+    //         <span className="text-xl capitalize">{selectedSign.sign}</span>
+    //       </div>
+    //     )}
+    //   </div>
+    // </div>
+    <div className="w-full max-w-xl mb-20">
+        <div className="cosmic-card rounded-xl p-8 relative overflow-hidden">
+          <div className="absolute -right-10 -bottom-10 w-40 h-40 rounded-full bg-cosmic-accent-3 opacity-20 blur-3xl"></div>
+          
+          <h3 className="text-xl font-semibold mb-6 text-center text-logo-yellow">Find Your Zodiac Sign</h3>
+          <div className="flex flex-col space-y-4">
+            <div className="flex space-x-3">
+              <div className="flex-1">
+                <label className="block mb-2 text-sm text-gray-300">Day</label>
+                <input 
+                  type="number" 
+                  min="1"
+                  max="31"
+                  placeholder="DD" 
+                  className="w-full bg-cosmic-glass border border-cosmic-glass-border rounded-lg px-4 py-3 focus:outline-none focus:border-logo-yellow"
+                />
+              </div>
+              <div className="flex-1">
+                <label className="block mb-2 text-sm text-gray-300">Month</label>
+                <input 
+                  type="number"
+                  min="1"
+                  max="12"
+                  placeholder="MM" 
+                  className="w-full bg-cosmic-glass border border-cosmic-glass-border rounded-lg px-4 py-3 focus:outline-none focus:border-logo-yellow"
+                />
+              </div>
+              <div className="flex-1">
+                <label className="block mb-2 text-sm text-gray-300">Year</label>
+                <input 
+                  type="number"
+                  min="1900"
+                  max="2025"
+                  placeholder="YYYY" 
+                  className="w-full bg-cosmic-glass border border-cosmic-glass-border rounded-lg px-4 py-3 focus:outline-none focus:border-logo-yellow"
+                />
+              </div>
+            </div>
+            <button className="w-full bg-logo-yellow text-black px-4 py-3 rounded-lg hover:opacity-90 transition-opacity">
+              Discover My Sign
+            </button>
           </div>
-        )}
+        </div>
       </div>
-    </div>
   );
 }
 

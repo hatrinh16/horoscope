@@ -5,8 +5,11 @@ import { LoadingOverlay } from "@mantine/core";
 import React, { useState } from "react";
 import { HeaderMenu } from "../../components/HeaderMenu";
 import { FooterLinks } from "../../components/FooterLinks";
-import { format } from "date-fns";
+import { format, startOfWeek, endOfWeek, isThisWeek } from "date-fns";
 import SeeOtherSigns from "../../components/SeeOtherSigns";
+import { CalendarDaysIcon, MoonIcon, SunIcon, StarIcon } from "lucide-react";
+
+
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -80,89 +83,94 @@ export default function SignDetails({name}) {
   const today = format(new Date(), "MMMM d, yyyy");
   const thisMonth = format(new Date(), "MMMM");
   const thisYear = format(new Date(), "yyyy");
+  const startDate = startOfWeek(new Date(), { weekStartsOn: 1 });
+  const endDate = endOfWeek(new Date(), { weekStartsOn: 1 });
+  const weekRange = `${format(startDate, "MMM d")} - ${format(endDate, "MMM d")}`;
+
 
   return (
     <main className="flex flex-col w-full items-center">
-      <div className="flex flex-col items-center z-10">
-        <img
-          src="/logo.png"
-          alt="logo"
-          className="mt-12 w-[60%] mb-4 cursor-pointer"
-          onClick={navigateToHomePage}
-        />
-      </div>
-      <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
-        <div className="stars"></div>
-        <div className="sun"></div>
-        <div className="moon"></div>
-        <div className="star"></div>
-        <div className="bolide"></div>
-      </div>
+      
       <HeaderMenu />
-      <div>
-        <span className="sign-name text-lg md:text-xl lg:text-2xl font-normal">
-          🌟 {capitalizedSign} Horoscope 🌟
-        </span>
+      
+      {/*Hero Section*/}
+      <div className="w-full max-w-4xl mx-auto mb-8">
+              <div className="cosmic-card rounded-2xl mt-24 p-8 text-center relative overflow-hidden">
+                <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-logo-yellow opacity-20 blur-2xl"></div>
+                <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-cosmic-accent-1 opacity-20 blur-2xl"></div>
+                
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  <StarIcon className="text-logo-yellow animate-sparkle" />
+                  <h1 className="text-3xl font-bold text-[#FFBF3D]">{capitalizedSign} Weekly Horoscope</h1>
+                  <StarIcon className="text-logo-yellow animate-sparkle" />
+                </div>
+                
+                <p className="text-gray-400 mb-2">{capitalizedSign.dates}</p>
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  <CalendarDaysIcon className="w-5 h-5 text-cosmic-accent-2" />
+                  <p className="text-cosmic-accent-2 font-medium">{weekRange}</p>
+                </div>
+                
+                <div className="flex items-center justify-center gap-4">
+                  <MoonIcon className="w-8 h-8 text-blue-300 animate-pulse" />
+                  <SunIcon className="w-10 h-10 text-logo-yellow animate-glow" />
+                  <MoonIcon className="w-8 h-8 text-blue-300 animate-pulse" />
+                </div>
+              </div>
       </div>
+          
       <div className="flex flex-col w-full md:w-3/5 items-start justify-center p-6">
-        <div className="flex flex-row w-full items-start justify-between">
-          <div className="flex flex-col items-start justify-start text-justify">
-            <h2 className="text-lg md:text-2xl lg:text-3xl">
-              Weekly Horoscope
-            </h2>
-            {renderWeeklyContent()}
+          {renderWeeklyContent()}
+      </div>
+
+      {/* Additional Horoscopes */}
+      <div className="flex flex-col items-center justify-center w-full lg:w-3/5 p-6">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-white mb-6">
+          Explore Future Readings
+        </h2>
+
+        <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 text-white">
+          <div
+            className="cursor-pointer rounded-xl border border-white/10 bg-white/5 px-4 py-6 text-center hover:bg-white/10 transition-all"
+            onClick={() => router.push(`/weekly-horoscope/${name}`)}
+          >
+            <div className="text-base font-semibold">Daily</div>
+            <div className="text-sm text-gray-300">{today}</div>
+          </div>
+
+          <div
+            className="cursor-pointer rounded-xl border border-white/10 bg-white/5 px-4 py-6 text-center hover:bg-white/10 transition-all"
+            onClick={() => router.push(`/monthly-horoscope/${name}`)}
+          >
+            <div className="text-base font-semibold">Monthly</div>
+            <div className="text-sm text-gray-300">{thisMonth}</div>
+          </div>
+
+          <div
+            className="cursor-pointer rounded-xl border border-white/10 bg-white/5 px-4 py-6 text-center hover:bg-white/10 transition-all"
+            // onClick={() => router.push(`/yearly-overview/${name}`)}
+          >
+            <div className="text-base font-semibold">Yearly</div>
+            <div className="text-sm text-gray-300">{thisYear}</div>
+          </div>
+
+          <div
+            className="cursor-pointer rounded-xl border border-white/10 bg-white/5 px-4 py-6 text-center hover:bg-white/10 transition-all"
+            onClick={() => router.push(`/love/${name}`)}
+          >
+            <div className="text-base font-semibold">Love</div>
+            <div className="text-sm text-gray-300">{thisMonth}</div>
+          </div>
+
+          <div
+            className="cursor-pointer rounded-xl border border-white/10 bg-white/5 px-4 py-6 text-center hover:bg-white/10 transition-all"
+            onClick={() => router.push(`/career/${name}`)}
+          >
+            <div className="text-base font-semibold">Career</div>
+            <div className="text-sm text-gray-300">Horoscope</div>
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-start justify-center w-full lg:w-3/5 p-6">
-            <h2 className="text-lg md:text-2xl lg:text-3xl">
-              More Horoscopes for {capitalizedSign}
-            </h2>
-            <div className="mt-8 w-full bg-white bg-opacity-5 rounded p-8">
-
-              <div className="grid grid-cols-2 gap-4">
-              <div
-                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4  hover:bg-white hover:bg-opacity-5 transition-all"
-                onClick={() => router.push(`/daily-horoscope/${name}`)}
-              >
-                <div className="font-semibold">Daily</div>
-                <div className="text-sm">{today}</div>
-              </div>
-
-              <div
-                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4  hover:bg-white hover:bg-opacity-5 transition-all"
-                onClick={() => router.push(`/monthly-horoscope/${name}`)}
-              >
-                <div className="font-semibold">Monthly</div>
-                <div className="text-sm">{thisMonth}</div>
-              </div>
-
-              <div
-                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4  hover:bg-white hover:bg-opacity-5 transition-all"
-                onClick={() => router.push(`/yearly-overview/${name}`)}
-              >
-                <div className="font-semibold">Yearly</div>
-                <div className="text-sm">{thisYear}</div>
-              </div>
-
-              <div
-                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4  hover:bg-white hover:bg-opacity-5 transition-all"
-                onClick={() => router.push(`/love/${name}`)}
-              >
-                <div className="font-semibold">{capitalizedSign} Love</div>
-                <div className="text-sm">{thisMonth}</div>
-              </div>
-
-              <div
-                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4 hover:bg-white hover:bg-opacity-5 transition-all"
-                onClick={() => router.push(`/career/${name}`)}
-              >
-                <div className="font-semibold">{capitalizedSign} Career</div>
-                <div className="text-sm">Horoscope</div>
-              </div>
-              </div>
-           </div>
-        </div>
         <div className="w-full lg:w-3/5 items-center p-6">
           <SeeOtherSigns name={name}/>
         </div>

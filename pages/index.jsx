@@ -1,102 +1,39 @@
 /* eslint-disable @next/next/no-img-element */
 import { AppContext } from "../components/AppContext";
 import { useContext } from "react";
-import AstrologyCard from "../components/AstrologyCard";
+import AstrologyCard from "../components/AstrologyCard"; // Fixed import path
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { HeaderMenu } from "../components/HeaderMenu";
 import { FooterLinks } from "../components/FooterLinks";
 import Header from "../components/Header";
 import { CardOfTheDay } from "../components/CardOfTheDay";
 import HoroscopeLinks from "../components/MoreHoroscopes";
+import { useState } from "react";
+import ZodiacWheel from "../components/ZodiacWheel";
 
 const starSign = [
-  {
-    sign: "aries",
-    image: "/aries.png",
-    start: "03-21",
-    end: "04-19",
-  },
-  {
-    sign: "taurus",
-    image: "/taurus.png",
-    start: "04-20",
-    end: "05-20",
-  },
-  {
-    sign: "gemini",
-    image: "/gemini.png",
-    start: "05-21",
-    end: "06-21",
-  },
-  {
-    sign: "cancer",
-    image: "/cancer.png",
-    start: "06-22",
-    end: "07-22",
-  },
-  {
-    sign: "leo",
-    image: "/leo.png",
-    start: "07-23",
-    end: "08-22",
-  },
-  {
-    sign: "virgo",
-    image: "/virgo.png",
-    start: "08-23",
-    end: "09-22",
-  },
-  {
-    sign: "libra",
-    image: "/libra.png",
-    start: "09-23",
-    end: "10-23",
-  },
-  {
-    sign: "scorpio",
-    image: "/scorpio.png",
-    start: "10-24",
-    end: "11-22",
-  },
-  {
-    sign: "sagittarius",
-    image: "/sagittarus.png",
-    start: "11-23",
-    end: "12-21",
-  },
-  {
-    sign: "capricorn",
-    image: "/capricorn.png",
-    start: "12-22",
-    end: "01-19",
-  },
-  {
-    sign: "aquarius",
-    image: "/aquarius.png",
-    start: "01-20",
-    end: "02-18",
-  },
-  {
-    sign: "pisces",
-    image: "/pisces.png",
-    start: "02-19",
-    end: "03-20",
-  },
+  { sign: "aries", element: "Fire", image: "/aries.png", start: "03-21", end: "04-19" },
+  { sign: "taurus", element: "Earth", image: "/taurus.png", start: "04-20", end: "05-20" },
+  { sign: "gemini", element: "Air", image: "/gemini.png", start: "05-21", end: "06-21" },
+  { sign: "cancer", element: "Water", image: "/cancer.png", start: "06-22", end: "07-22" },
+  { sign: "leo", element: "Fire", image: "/leo.png", start: "07-23", end: "08-22" },
+  { sign: "virgo", element: "Earth", image: "/virgo.png", start: "08-23", end: "09-22" },
+  { sign: "libra", element: "Air", image: "/libra.png", start: "09-23", end: "10-23" },
+  { sign: "scorpio", element: "Water", image: "/scorpio.png", start: "10-24", end: "11-22" },
+  { sign: "sagittarius", element: "Fire", image: "/sagittarus.png", start: "11-23", end: "12-21" },
+  { sign: "capricorn", element: "Earth", image: "/capricorn.png", start: "12-22", end: "01-19" },
+  { sign: "aquarius", element: "Air", image: "/aquarius.png", start: "01-20", end: "02-18" },
+  { sign: "pisces", element: "Water", image: "/pisces.png", start: "02-19", end: "03-20" },
 ];
 
 export default function IndexPage() {
+  const [activeSign, setActiveSign] = useState(null);
   const date = useContext(AppContext);
   const sign = getSign();
 
   function renderAstrologyCard() {
     return starSign.map((item, index) => (
-     
-        <AstrologyCard
-          key={index}
-          sign={item.sign}
-          img={item.image}
-          horoscope={item.data}
-        />
+      <AstrologyCard key={index} sign={item.sign} img={item.image} horoscope={item.data} />
     ));
   }
 
@@ -122,48 +59,21 @@ export default function IndexPage() {
   }
 
   return (
-    <main className="flex flex-col w-full items-center">
-      {/* logo */}
-      <div className="flex flex-col items-center z-10">
-        <img
-          src="/logo.png"
-          alt="logo"
-          className="mt-12 w-[60%] mb-4 cursor-pointer"
-        />
-      </div>
-
-      <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
-        <div className="stars"></div>
-        <div className="sun"></div>
-        <div className="moon"></div>
-        <div className="star"></div>
-        <div className="bolide"></div>
-      </div>
-
+    <main className="flex flex-col w-full items-center bg-[#14082b]">
+       
       <HeaderMenu />
 
-      {/* Daily horoscope */}
-      <div className="flex flex-row w-full lg:w-4/5 mt-4 items-start justify-center">
-        <div className="w-full lg:w-3/4 p-4">
-          <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold text-center">
-            Daily Horoscopes
-          </h2>
-          <div className="flex items-center mt-6 justify-center gap-4 h-auto flex-wrap">
-            {renderAstrologyCard()}
-          </div>
-        </div>
-      </div>
+      {/* Zodiac Wheel Section */}
+      <ZodiacWheel starSign={starSign} />
 
       {/* Choose sign */}
       <Header selectedSign={sign} />
-      <CardOfTheDay/>
+      <CardOfTheDay />
+
       {/* More horoscope */}
-      <div className="flex flex-col w-full items-center justify-center mb-4">
-        <div className="flex flex-col w-full items-center p-4">
-          <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold text-center">
-            More Horoscopes
-          </h2>
-          <HoroscopeLinks/>
+      <div className="flex flex-col w-full lg:w-5/6 items-center justify-center mb-4">
+        <div className="flex flex-col w-full lg:w-5/6 items-center p-4">
+          <HoroscopeLinks />
         </div>
       </div>
       <FooterLinks />

@@ -58,31 +58,34 @@ function Energy({ sign, tabIndex }) {
   };
 
   return (
-    <div className="w-full items-center mt-4">
-        <div className="flex flex-col w-full items-start justify-start rounded  bg-white bg-opacity-5 p-8">
-            <div className="flex w-full items-center justify-center">
-              <ul className="w-full lg:w-[80%] p-0">
-                {energyIndex.map((energyData, index) => (
-                  <li key={index} className="flex items-center mb-2">
-                    <label className="flex-shrink-0 w-1/3 lg:w-1/4">
-                      {energyData.label}
-                    </label>
-                    <div className="flex-grow h-4">
-                      <span
-                        className={`block h-full ${getColorForLabel(energyData.label)}`}
-                        style={{ width: `${energyData.spans[2]}%` }}
-                      ></span>
-                    </div>
-                    <span className="flex-shrink-0 w-1/4 ml-1 text-center">
-                      {energyData.spans[2]}%
-                    </span>
-                  </li>
-                ))}
-              </ul>
+    <div className="w-full items-center mt-8">
+      <div className="flex flex-col w-full items-center justify-center rounded bg-white bg-opacity-5 p-8">
+        <h3 className="text-xl font-semibold text-white text-center mb-6">
+          Cosmic Energies
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+          {energyIndex.map((energyData, index) => (
+            <div
+              key={index}
+              className="rounded-xl bg-[#25194b] p-4 text-white shadow-md border border-white/5 w-full"
+            >
+              <div className="flex justify-between mb-2 text-sm font-medium">
+                <span>{energyData.label.replace(":", "")}</span>
+                <span>{energyData.spans[2]}%</span>
+              </div>
+              <div className="w-full h-2 bg-[#3a2e5f] rounded-full overflow-hidden">
+                <div
+                  className={`h-full ${getColorForLabel(energyData.label)} rounded-full`}
+                  style={{ width: `${energyData.spans[2]}%` }}
+                />
+              </div>
             </div>
-          </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
+  
 }
 
 export default Energy;

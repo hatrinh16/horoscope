@@ -3,12 +3,33 @@
     --heading-color: linear-gradient(91deg, #8E7AB5 13.4%, #EEA5A6 75.14%);
     --style-1: linear-gradient(323deg, #FF989A -30.22%, #FFCACB 43.35%, #FFC6CC 49.41%, #CF93C4 115.7%, #B784B7 129.17%);
     --style-2: linear-gradient(208deg, #FF989A -47.3%, #FFCACB 42.98%, #FFC6CC 50.42%, #CF93C4 131.78%, #B784B7 148.3%);
+    
+    /* --logo-yellow: #FFBF3D; */
+
+    /* Custom cosmic theme color */
+    --cosmic-card: rgba(25, 11, 57, 0.6);
+    --cosmic-glass: rgba(255, 255, 255, 0.05);
+    --cosmic-glass-border: rgba(255, 255, 255, 0.1);
 }
 
 body {
   background: radial-gradient(ellipse at bottom, #0b0c1a 0%, #000000 100%);
   overflow-x: hidden;
   color: white;
+}
+
+/* Cosmic Glass Effect */
+.cosmic-glass {
+  background: var(--cosmic-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--cosmic-glass-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+.cosmic-card {
+  background: var(--cosmic-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--cosmic-glass-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 /* Stars - subtle sparkle background */
@@ -151,6 +172,8 @@ body {
 
 h1 {
     font-weight: 700;
+    /* background: #FFBF3D; */
+    color: #FFBF3D;
     /* background: var(--Primary);
     background-clip: text;
     -webkit-background-clip: text;
