@@ -613,7 +613,7 @@ export default function StyleGuide() {
   const currentStyle = getCurrentZodiacStyle();
 
   return (
-    <div className="pt-28">
+    <div className="pt-28 pb-16">
         <HeaderMenu/>
       {/* Hero Section */}
       <div className="w-full max-w-4xl mx-auto mb-12">
@@ -917,7 +917,6 @@ export default function StyleGuide() {
             </div>
           </div>
         )}
-        
       </div>
       <FooterLinks/>
     </div>
