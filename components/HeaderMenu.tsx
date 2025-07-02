@@ -10,6 +10,7 @@ import {
 import { useDisclosure } from '@mantine/hooks';
 import { useState, useEffect } from 'react';
 import classes from './HeaderMenu.module.css';
+import Link from 'next/link';
 
 const links = [
   { link: '/', label: 'Horoscopes' },
@@ -32,9 +33,9 @@ export function HeaderMenu() {
   }, []);
 
   const items = links.map((link) => (
-    <a key={link.label} href={link.link} className={classes.link}>
+    <Link key={link.label} href={link.link} className={classes.link}>
       {link.label}
-    </a>
+    </Link>
   ));
 
   const mobileMenu = (
@@ -76,9 +77,9 @@ export function HeaderMenu() {
     >
       <Container size="xl">
         <div className={classes.inner}>
-          <a href="/" className="flex items-center">
+          <Link href="/" className="flex items-center">
             <img src="/logo.png" alt="logo" className="h-10" />
-          </a>
+          </Link>
 
           <Group gap={25} visibleFrom="sm">
             {items}
