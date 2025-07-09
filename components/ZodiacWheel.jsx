@@ -8,9 +8,9 @@ export default function ZodiacWheel({ starSign }) {
   const router = useRouter();
 
   return (
-    <div className="m-24 text-left">
+    <div className="m-6 lg:m-24 text-left">
      {/* Hero Section */}
-     <div className="w-full max-w-4xl rounded-xl shadow-lg p-8 relative overflow-hidden">
+     <div className="w-full max-w-4xl rounded-xl shadow-lg mt-24 relative overflow-hidden">
         <div className="cosmic-card rounded-2xl p-4 md:p-8 relative overflow-hidden">
           
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r bg-clip-text ">
@@ -70,6 +70,29 @@ export default function ZodiacWheel({ starSign }) {
             );
           })}
         </div>
+
+         {/* Mobile Zodiac Grid */}
+        <div className="md:hidden grid grid-cols-3 gap-6">
+          {starSign.map((sign) => (
+            <div
+              key={sign.name}
+              className={`flex flex-col items-center cursor-pointer transition-transform duration-200 ${
+                activeSign === sign.sign ? 'scale-105 z-10' : ''
+              }`}
+              onClick={() => setActiveSign(sign.sign)}
+            >
+              <div className="relative rounded-full overflow-hidden border-2 border-logo-yellow mb-2">
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${sign.color} opacity-30`}
+                ></div>
+                <AstrologyCard sign={sign.sign.toLowerCase()} img={sign.image} />
+              </div>
+              <p className="font-medium text-white text-sm">{sign.name}</p>
+              <p className="text-xs text-gray-400">{sign.dates}</p>
+            </div>
+          ))}
+        </div>
+
       </div>
     </div>
   );

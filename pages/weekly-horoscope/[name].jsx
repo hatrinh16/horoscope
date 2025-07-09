@@ -132,7 +132,7 @@ export default function SignDetails({name}) {
         <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 text-white">
           <div
             className="cursor-pointer rounded-xl border border-white/10 bg-white/5 px-4 py-6 text-center hover:bg-white/10 transition-all"
-            onClick={() => router.push(`/weekly-horoscope/${name}`)}
+            onClick={() => router.push(`/daily-horoscope/${name}`)}
           >
             <div className="text-base font-semibold">Daily</div>
             <div className="text-sm text-gray-300">{today}</div>
