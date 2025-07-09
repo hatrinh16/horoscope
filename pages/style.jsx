@@ -678,7 +678,7 @@ export default function StyleGuide() {
                 className={`flex items-center px-4 py-2 rounded-full transition-all ${
                   activeTab === tab.id
                     ? 'bg-logo-yellow text-black'
-                    : 'text-white hover:bg-cosmic-glass'
+                    : 'text-gray-400 hover:bg-cosmic-glass'
                 }`}
               >
                 <tab.icon size={16} className="mr-2" />

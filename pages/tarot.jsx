@@ -107,22 +107,24 @@ export default function TarotReader() {
         {/* Idle state: placeholder cards */}
         {/* Idle state: show cosmic card backs only when no question is entered */}
         {!loading && cards.length === 0 && !question && (
-          <div className="relative flex justify-center my-12">
-            <div className="flex gap-8">
-              {[1, 2, 3].map((i) => (
-                <div
-                  key={i}
-                  className="w-40 h-64 bg-[#2b186c] rounded-xl flex items-center justify-center relative"
-                >
-                  <div className="w-16 h-16 border border-purple-300 rounded-full flex items-center justify-center">
-                    <div className="w-10 h-10 border border-purple-500 rounded-full flex items-center justify-center">
-                      <div className="w-5 h-5 bg-purple-600 rounded-full"></div>
-                    </div>
+          <div className="relative flex justify-center my-12 px-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl w-full">
+            {[1, 2, 3].map((i) => (
+              <div
+                key={i}
+                className="aspect-[3/4] bg-[#2b186c] rounded-xl flex items-center justify-center relative"
+              >
+                <div className="w-16 h-16 border border-purple-300 rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 border border-purple-500 rounded-full flex items-center justify-center">
+                    <div className="w-5 h-5 bg-purple-600 rounded-full"></div>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
+        </div>
+        
+        
         )}
 
 
@@ -169,11 +171,11 @@ export default function TarotReader() {
                     setCards([]);
                     setReading("");
                   }}
-                  className="cosmic-glass rounded-full px-6 py-2 hover:cosmic-card-highlight transition-all"
+                  className="cosmic-glass rounded-full px-6 py-2 hover:cosmic-card-highlight text-white transition-all"
                 >
                   Ask Another Question
                 </button>
-                <button className="cosmic-glass rounded-full px-6 py-2 hover:cosmic-card-highlight transition-all">
+                <button className="cosmic-glass rounded-full px-6 py-2 hover:cosmic-card-highlight text-white transition-all">
                   Save Reading
                 </button>
               </div>
