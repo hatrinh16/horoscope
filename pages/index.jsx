@@ -11,6 +11,7 @@ import HoroscopeLinks from "../components/MoreHoroscopes";
 import { useState } from "react";
 import ZodiacWheel from "../components/ZodiacWheel";
 
+
 const starSign = [
   { sign: "aries", element: "Fire", image: "/aries.png", start: "03-21", end: "04-19" },
   { sign: "taurus", element: "Earth", image: "/taurus.png", start: "04-20", end: "05-20" },
@@ -60,7 +61,6 @@ export default function IndexPage() {
 
   return (
     <main className="flex flex-col w-full items-center bg-[#14082b]">
-       
       <HeaderMenu />
 
       {/* Zodiac Wheel Section */}

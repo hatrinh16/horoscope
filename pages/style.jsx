@@ -613,7 +613,7 @@ export default function StyleGuide() {
   const currentStyle = getCurrentZodiacStyle();
 
   return (
-    <div className="pt-28 pb-16">
+    <div className="pt-28 pb-16 bg-[#14082b]">
         <HeaderMenu/>
       {/* Hero Section */}
       <div className="w-full max-w-4xl mx-auto mb-12">

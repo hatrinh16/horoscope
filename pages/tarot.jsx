@@ -44,7 +44,7 @@ export default function TarotReader() {
   };
 
   return (
-    <main className="flex flex-col w-full items-center min-h-screen bg-black text-white relative">
+    <main className="flex flex-col w-full items-center min-h-screen bg-[#14082b] text-white relative">
 
       <HeaderMenu />
 

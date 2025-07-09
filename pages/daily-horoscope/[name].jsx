@@ -153,15 +153,12 @@ export default function SignDetails({ name }) {
   if (!isMounted) return null;
 
   return (
-    <main className="flex flex-col w-full items-center">
-      
-
+    <main className="flex flex-col w-full items-center  bg-[#14082b]">
+      {/* Updated Background */}
       <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
         <div className="stars"></div>
-        <div className="sun"></div>
-        <div className="moon"></div>
-        <div className="star"></div>
-        <div className="bolide"></div>
+        <div className="nebula"></div> {/* Added nebula background */}
+        <div className="shooting-stars"></div> {/* Added shooting stars */}
       </div>
 
       <HeaderMenu />

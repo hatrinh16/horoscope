@@ -91,7 +91,7 @@ export default function SignDetails({name}) {
   const thisYear = format(new Date(), "yyyy");
 
   return (
-    <main className="flex flex-col w-full items-center">
+    <main className="flex flex-col w-full items-center bg-[#14082b]">
       
       <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
         <div className="stars"></div>

@@ -102,7 +102,7 @@ export default function SignDetails({name}) {
   const thisYear = format(new Date(), "yyyy");
 
   return (
-    <main className="flex flex-col w-full items-center">
+    <main className="flex flex-col w-full items-center  bg-[#14082b]">
       
       <HeaderMenu />
       

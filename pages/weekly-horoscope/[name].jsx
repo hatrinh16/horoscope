@@ -89,7 +89,7 @@ export default function SignDetails({name}) {
 
 
   return (
-    <main className="flex flex-col w-full items-center">
+    <main className="flex flex-col w-full items-center bg-[#14082b]">
       
       <HeaderMenu />
       
