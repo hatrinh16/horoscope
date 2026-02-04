@@ -8,6 +8,7 @@ import { FooterLinks } from "../../components/FooterLinks";
 import { format, startOfWeek, endOfWeek } from "date-fns";
 import SeeOtherSigns from "../../components/SeeOtherSigns";
 import ZodiacCalendar from "../../components/Calendar";
+import { TrendingUp, CalendarDaysIcon, MoonIcon, SunIcon, StarIcon } from "lucide-react";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 export async function getStaticPaths() {
@@ -96,78 +97,83 @@ export default function SignDetails({name}) {
   return (
     <main className="flex flex-col w-full items-center bg-[#14082b]">
       
-      <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
-        <div className="stars"></div>
-        <div className="sun"></div>
-        <div className="moon"></div>
-        <div className="star"></div>
-        <div className="bolide"></div>
-      </div>
       <HeaderMenu />
+
       <div className="mt-24">
-        <span className="sign-name text-lg md:text-xl lg:text-2xl font-normal">
-          🌟 {capitalizedSign} Horoscope 🌟
-        </span>
+       
+        <div className=" bg-white bg-opacity-5 border border-white/10 rounded-3xl px-6 py-8 text-center text-white shadow-inner backdrop-blur relative overflow-hidden">
+          <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-logo-yellow opacity-20 blur-2xl" />
+          <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-cosmic-accent-1 opacity-20 blur-2xl" />
+
+          <div className="flex justify-center items-center gap-2 text-xl md:text-2xl font-bold text-logo-yellow">
+            <MoonIcon className="w-5 h-5" />
+            <h1 className="text-3xl font-bold text-[#FFBF3D]">{capitalizedSign} Monthly Love Horoscope</h1>
+            <SunIcon className="w-5 h-5" />
+          </div>
+
+          <div className="flex justify-center items-center gap-2 text-base mt-3 font-medium text-white">
+            <CalendarDaysIcon className="w-5 h-5" />
+             {thisMonth}
+          </div>
+        </div>
       </div>
       <div className="w-full md:w-3/5 justify-center items-start p-6">
         <div className="flex flex-row w-full items-start justify-between">
           <div className="flex flex-col items-start justify-start text-justify">
-            <h2 className="text-lg md:text-2xl lg:text-3xl">
-            Monthly Love Horoscope
-            </h2>
             {renderLoveContent()}
           </div>
         </div>
       </div>
       <div className="flex flex-col items-start justify-center w-full lg:w-3/5 p-6">
+            <div className="flex flex-col w-full items-center justify-between mt-10">
             <h2 className="text-lg md:text-2xl lg:text-3xl">
-              More Horoscopes for {capitalizedSign}
+              Explore Future Readings for {capitalizedSign}
             </h2>
-            <div className="mt-8 w-full bg-white bg-opacity-5 rounded p-8">
 
-              <div className="grid grid-cols-2 gap-4">
+            <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 text-white">
+
               <div
-                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4  hover:bg-white hover:bg-opacity-5 transition-all"
-                onClick={() => router.push(`/weekly-horoscope/${name}`)}
+                className="cursor-pointer rounded-xl border border-white/10 bg-white/5 px-4 py-6 text-center hover:bg-white/10 transition-all"
+                onClick={() => router.push(`/daily-horoscope/${name}`)}
               >
-                <div className="font-semibold">Daily</div>
-                <div className="text-sm">{today}</div>
+                <div className="text-base font-semibold">Daily</div>
+                <div className="text-sm text-gray-300">{today}</div>
               </div>
 
               <div
-                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4  hover:bg-white hover:bg-opacity-5 transition-all"
+                className="cursor-pointer rounded-xl border border-white/10 bg-white/5 px-4 py-6 text-center hover:bg-white/10 transition-all"
                 onClick={() => router.push(`/weekly-horoscope/${name}`)}
               >
-                <div className="font-semibold">Weekly</div>
-                <div className="text-sm">{weekRange}</div>
+                <div className="text-base font-semibold">Weekly</div>
+                <div className="text-sm text-gray-300">{weekRange}</div>
               </div>
 
               <div
-                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4  hover:bg-white hover:bg-opacity-5 transition-all"
+                className="cursor-pointer rounded-xl border border-white/10 bg-white/5 px-4 py-6 text-center hover:bg-white/10 transition-all"
                 onClick={() => router.push(`/monthly-horoscope/${name}`)}
               >
-                <div className="font-semibold">Monthly</div>
-                <div className="text-sm">{thisMonth}</div>
+                <div className="text-base font-semibold">Monthly</div>
+                <div className="text-sm text-gray-300">{thisMonth}</div>
               </div>
 
               <div
-                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4  hover:bg-white hover:bg-opacity-5 transition-all"
-                // onClick={() => router.push(`/yearly-overview/${name}`)}
+                className="cursor-pointer rounded-xl border border-white/10 bg-white/5 px-4 py-6 text-center hover:bg-white/10 transition-all"
+                onClick={() => router.push(`/yearly-overview/${name}`)}
               >
-                <div className="font-semibold">Yearly</div>
-                <div className="text-sm">{thisYear}</div>
+                <div className="text-base font-semibold">Yearly</div>
+                <div className="text-sm text-gray-300">{thisYear}</div>
               </div>
 
-
               <div
-                className="rounded cursor-pointer border-solid border border-[#6c757d] p-4 hover:bg-white hover:bg-opacity-5 transition-all"
+                className="cursor-pointer rounded-xl border border-white/10 bg-white/5 px-4 py-6 text-center hover:bg-white/10 transition-all"
                 onClick={() => router.push(`/career/${name}`)}
               >
-                <div className="font-semibold">{capitalizedSign} Career</div>
-                <div className="text-sm">Horoscope</div>
-              </div>
+                <div className="text-base font-semibold">Career</div>
+                <div className="text-sm text-gray-300">Horoscope</div>
               </div>
            </div>
+          </div>
+
         </div>
       <div className="w-full lg:w-3/5 items-center p-6">
           <SeeOtherSigns name={name}/>

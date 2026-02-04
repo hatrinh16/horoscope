@@ -109,7 +109,7 @@ export default function SignDetails({name}) {
       {/* Hero Section */}
 <div className="w-full max-w-4xl mx-auto px-4 md:px-6 mt-24 space-y-6">
     {/* Header Box */}
-  <div className="bg-[#1b1033] border border-white/10 rounded-3xl px-6 py-8 text-center text-white shadow-inner backdrop-blur relative overflow-hidden">
+  <div className=" bg-white bg-opacity-5 rounded-3xl px-6 py-8 text-center text-white shadow-inner backdrop-blur relative overflow-hidden">
     <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-logo-yellow opacity-20 blur-2xl" />
     <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-cosmic-accent-1 opacity-20 blur-2xl" />
 
@@ -150,9 +150,9 @@ export default function SignDetails({name}) {
             {renderMonthlyContent()}
           </div>
         </div>
-        <div className="flex flex-col w-full items-start justify-between mt-10">
+        <div className="flex flex-col w-full items-center justify-between mt-10">
             <h2 className="text-lg md:text-2xl lg:text-3xl">
-              More Horoscopes for {capitalizedSign}
+              Explore Future Readings for {capitalizedSign}
             </h2>
 
             <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 text-white">
@@ -175,7 +175,7 @@ export default function SignDetails({name}) {
 
               <div
                 className="cursor-pointer rounded-xl border border-white/10 bg-white/5 px-4 py-6 text-center hover:bg-white/10 transition-all"
-                // onClick={() => router.push(`/yearly-overview/${name}`)}
+                onClick={() => router.push(`/yearly-overview/${name}`)}
               >
                 <div className="text-base font-semibold">Yearly</div>
                 <div className="text-sm text-gray-300">{thisYear}</div>

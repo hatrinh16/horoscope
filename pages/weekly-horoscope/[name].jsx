@@ -148,7 +148,7 @@ export default function SignDetails({name}) {
 
           <div
             className="cursor-pointer rounded-xl border border-white/10 bg-white/5 px-4 py-6 text-center hover:bg-white/10 transition-all"
-            // onClick={() => router.push(`/yearly-overview/${name}`)}
+            onClick={() => router.push(`/yearly-overview/${name}`)}
           >
             <div className="text-base font-semibold">Yearly</div>
             <div className="text-sm text-gray-300">{thisYear}</div>
