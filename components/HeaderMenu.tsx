@@ -17,7 +17,7 @@ const links = [
   { link: '/tarot', label: 'AI Tarot' },
   { link: '/', label: 'Compatibility' },
   { link: '/style', label: 'Style Guide' },
-  { link: '/cosmickingdom', label: 'Cosmic Kingdom' },
+  { link: '/chat-tarot', label: 'Chat Tarot' },
 ];
 
 export function HeaderMenu() {
