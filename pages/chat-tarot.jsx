@@ -80,12 +80,17 @@ export default function TarotChat() {
   return (
   <main className="w-full min-h-screen bg-[#14082b] text-white flex flex-col items-center">
     <HeaderMenu />
+    {/* Cosmic background glow */}
+      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-violet-700/20 blur-[180px] rounded-full" />
+        <div className="absolute bottom-[-300px] right-[-200px] w-[700px] h-[700px] bg-purple-900/20 blur-[200px] rounded-full" />
+      </div>
 
     {/* Full width chat area */}
-    <div className="flex-1 flex flex-col w-3/4 pt-24">
+    <div className="flex-1 flex flex-col w-full lg:w-3/5 pt-24">
 
       {/* Messages take full width */}
-      <div className="flex-1 overflow-y-auto px-8 md:px-24 lg:px-48 space-y-4 pb-32">
+      <div className="flex-1 overflow-y-auto px-6 space-y-4 pb-32">
         {messages.map((msg, i) => (
           <div
             key={i}
@@ -109,7 +114,7 @@ export default function TarotChat() {
       </div>
 
       {/* Sticky input bar like ChatGPT */}
-      <div className="fixed bottom-0 w-3/4 px-8 md:px-24 lg:px-48 py-6">
+      <div className="fixed bottom-0 w-full lg:w-3/5 px-6 py-6">
         <div className="flex gap-4 ">
           <input
             className="
