@@ -58,7 +58,7 @@ export const CardOfTheDay = () => {
                     </div>
                   </div>
                   <div className="md:w-2/3">
-                    <h4 className="text-xl text-logo-yellow mb-2">Five of Wands</h4>
+                    <h4 className="text-xl text-logo-yellow mb-2">{card}</h4>
                     <p className="text-gray-300 mb-6 italic">
                       {description}
                     </p>
